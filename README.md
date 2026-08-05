@@ -200,3 +200,27 @@ Trong repo phải có thêm:
 2. Khi nộp bài, chỉ nén folder `output/` thành file zip; không đưa source code, `.env` hoặc các file audit vào zip này.
 3. Luôn commit toàn bộ source code lên repo trước khi nộp file output zip để chấm điểm.
 4. API key và secret phải đặt trong file `.env` và không được commit. Tên model sử dụng phải được khai báo rõ trong source code, đồng thời ghi lại trong `metadata.json` (Tức là model name không ghi vào .env, cho vào code để chấm)
+
+## 10. Cách chạy implementation trong repo này
+
+Implementation nằm trong `src/`, dùng LangGraph fan-out/fan-in và model được
+hard-code là `gpt-4o-mini`. Tạo `.env` không commit với biến
+`OPENAI_API_KEY`, sau đó chạy:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m src.pipeline
+.venv/bin/python -m src.validate
+```
+
+Lệnh pipeline là online-only: 4 model call có Structured Outputs cho mỗi case,
+tổng cộng 200 call cho 50 case. Nó ghi mới 50 file `output/EC_*.json`,
+`logging/trace.jsonl` và `logging/metadata.json`. Validator độc lập dựng lại
+policy oracle từ CSV để kiểm tra cả output lẫn trace thật.
+
+Chỉ đóng gói JSON sau khi validation pass:
+
+```bash
+(cd output && zip -q ../output.zip EC_*.json)
+```
