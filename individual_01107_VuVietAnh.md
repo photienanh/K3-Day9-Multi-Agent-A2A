@@ -4,13 +4,13 @@
 
 ## 1. Thông tin cá nhân
 
-| Thông tin       | Nội dung     |
-| --------------- | ------------ |
-| Họ và tên       | [Họ và tên]  |
-| MSSV            | [MSSV]       |
-| Khóa/Lớp        | [K3]         |
-| Vai trò chính   | [Vai trò]    |
-| Ngày hoàn thành | [YYYY-MM-DD] |
+| Thông tin       | Nội dung      |
+| --------------- | ------------- |
+| Họ và tên       | [Vũ Việt Anh] |
+| MSSV            | [2A202601107] |
+| Khóa/Lớp        | [K3]          |
+| Vai trò chính   | [Vai trò]     |
+| Ngày hoàn thành | [YYYY-MM-DD]  |
 
 ## 2. Vai trò và phạm vi công việc
 
