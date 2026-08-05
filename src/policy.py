@@ -14,12 +14,12 @@ class PolicyResolutionError(RuntimeError):
 
 
 CONFIDENCE_BY_ISSUE = {
-    "canceled_order_paid": 0.92,
-    "unavailable_order_paid": 0.92,
-    "late_delivery_seller": 0.92,
-    "late_delivery_logistics": 0.92,
-    "valid_split_payment": 0.92,
-    "unsupported_late_claim": 0.92,
+    "canceled_order_paid": 0.98,
+    "unavailable_order_paid": 0.98,
+    "late_delivery_seller": 0.98,
+    "late_delivery_logistics": 0.98,
+    "valid_split_payment": 0.98,
+    "unsupported_late_claim": 0.98,
 }
 
 
@@ -124,7 +124,14 @@ def build_case_output(facts: dict[str, Any], decision: dict[str, Any]) -> CaseOu
     source_evidence = [f"order:{order_id}"]
     source_evidence.extend(f"item:{item_id}" for item_id in item_ids)
     source_evidence.extend(f"payment:{payment_id}" for payment_id in payment_ids)
-    source_evidence.extend(f"seller:{seller_id}" for seller_id in seller_ids)
+    responsible_seller_ids = [
+        party["party_id"]
+        for party in decision["responsible_parties"]
+        if party["party_type"] == "seller"
+    ]
+    source_evidence.extend(
+        f"seller:{seller_id}" for seller_id in responsible_seller_ids
+    )
     policy_evidence = f"policy:{decision['root_cause_code']}"
     evidence_ids = source_evidence[:9] + [policy_evidence]
 

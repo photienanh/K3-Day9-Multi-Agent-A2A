@@ -1,4 +1,5 @@
 {
+  "cohort": "K3",
   "model": {
     "name": "gpt-4o-mini",
     "parameter_size": "~8B"

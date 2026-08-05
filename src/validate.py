@@ -89,9 +89,18 @@ def validate_outputs(repository: DataRepository) -> Counter[str]:
 def validate_trace_and_metadata(
     repository: DataRepository, metadata: dict[str, Any], events: list[dict[str, Any]]
 ) -> dict[str, Any]:
-    expected_metadata_keys = {"model", "framework", "runtime", "policy", "agents"}
+    expected_metadata_keys = {
+        "cohort",
+        "model",
+        "framework",
+        "runtime",
+        "policy",
+        "agents",
+    }
     if set(metadata) != expected_metadata_keys:
         raise ArtifactValidationError("metadata must use the compact submission schema")
+    if metadata.get("cohort") != "K3":
+        raise ArtifactValidationError("metadata cohort must be K3")
     run_id = events[0].get("run_id")
     if not isinstance(run_id, str) or not run_id:
         raise ArtifactValidationError("trace run_id is missing")

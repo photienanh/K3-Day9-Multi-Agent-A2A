@@ -42,6 +42,7 @@ def build_metadata() -> dict[str, Any]:
     """Return the compact submission metadata requested by the assignment."""
 
     return {
+        "cohort": "K3",
         "model": {
             "name": MODEL_NAME,
             "parameter_size": "~8B",
