@@ -26,7 +26,7 @@ Báo cáo này ghi lại phần triển khai và kiểm chứng hệ thống mul
 
 | Hoạt động                 | Thành viên/module được hỗ trợ | Kết quả                 |
 | ------------------------- | ----------------------------- | ----------------------- |
-| Tích hợp và tài liệu | Toàn pipeline | Chạy được từ `.venv`, metadata tái lập được |
+| Tích hợp và tài liệu | Toàn pipeline | Chạy được từ `.venv`, metadata nộp bài gọn đúng yêu cầu |
 
 ## 3. Kết quả theo vai trò
 
@@ -66,7 +66,7 @@ CSV được index theo `order_id`, sau đó mỗi case tạo một fact snapsho
 ```
 
 - **Kết quả mong đợi:** 50 output hợp lệ và trace của lần chạy mới nhất.
-- **Kết quả thực tế:** Run `run_20260805T040937Z_459dfb80` hoàn tất 50/50 case, 200 model call, 87.968 token và 1.652 trace event; validation PASS cho output, evidence, arithmetic, trace và metadata.
+- **Kết quả thực tế:** Run `run_20260805T043353Z_dc9fceb7` hoàn tất 50/50 case, 200 model call, 88.026 token và 1.652 trace event; validation PASS cho output, evidence, arithmetic, trace và metadata.
 - **Artifact/log:** `output/`, `logging/trace.jsonl`, `logging/metadata.json`; không chứa secret.
 
 ## 5. Một quyết định kỹ thuật quan trọng

@@ -14,12 +14,12 @@ class PolicyResolutionError(RuntimeError):
 
 
 CONFIDENCE_BY_ISSUE = {
-    "canceled_order_paid": 0.99,
-    "unavailable_order_paid": 0.99,
-    "late_delivery_seller": 0.98,
-    "late_delivery_logistics": 0.98,
-    "valid_split_payment": 0.99,
-    "unsupported_late_claim": 0.99,
+    "canceled_order_paid": 0.92,
+    "unavailable_order_paid": 0.92,
+    "late_delivery_seller": 0.92,
+    "late_delivery_logistics": 0.92,
+    "valid_split_payment": 0.92,
+    "unsupported_late_claim": 0.92,
 }
 
 

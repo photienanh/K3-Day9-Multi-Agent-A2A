@@ -88,18 +88,34 @@ def validate_outputs(repository: DataRepository) -> Counter[str]:
 
 def validate_trace_and_metadata(
     repository: DataRepository, metadata: dict[str, Any], events: list[dict[str, Any]]
-) -> None:
-    run_id = metadata.get("run_id")
+) -> dict[str, Any]:
+    expected_metadata_keys = {"model", "framework", "runtime", "policy", "agents"}
+    if set(metadata) != expected_metadata_keys:
+        raise ArtifactValidationError("metadata must use the compact submission schema")
+    run_id = events[0].get("run_id")
     if not isinstance(run_id, str) or not run_id:
-        raise ArtifactValidationError("metadata.run_id is missing")
+        raise ArtifactValidationError("trace run_id is missing")
     if metadata.get("model", {}).get("name") != MODEL_NAME:
         raise ArtifactValidationError(f"metadata model must be {MODEL_NAME}")
-    if metadata.get("execution", {}).get("mode") != "online":
-        raise ArtifactValidationError("metadata execution mode must be online")
-    if metadata.get("execution", {}).get("completed_cases") != EXPECTED_CASE_COUNT:
-        raise ArtifactValidationError("metadata completed_cases must be 50")
-    if metadata.get("execution", {}).get("failed_cases") != 0:
-        raise ArtifactValidationError("metadata contains failed cases")
+    if metadata.get("model", {}).get("parameter_size") != "~8B":
+        raise ArtifactValidationError("metadata parameter_size must be ~8B")
+    if metadata.get("framework", {}).get("name") != "LangGraph":
+        raise ArtifactValidationError("metadata framework must be LangGraph")
+    if not metadata.get("runtime", {}).get("python"):
+        raise ArtifactValidationError("metadata runtime.python is missing")
+    if metadata.get("policy", {}).get("version") != "EC_POLICY_V1":
+        raise ArtifactValidationError("metadata policy must be EC_POLICY_V1")
+    expected_agents = {
+        "Coordinator Agent",
+        "Order & Seller Agent",
+        "Payment Agent",
+        "Delivery Agent",
+        "Policy Agent",
+        "Verifier Agent",
+    }
+    actual_agents = {agent.get("name") for agent in metadata.get("agents", [])}
+    if actual_agents != expected_agents:
+        raise ArtifactValidationError("metadata agent set is incomplete")
 
     if any(event.get("run_id") != run_id for event in events):
         raise ArtifactValidationError("Trace contains a different run_id")
@@ -168,13 +184,17 @@ def validate_trace_and_metadata(
         for event in llm_responses
     ):
         raise ArtifactValidationError("A model response lacks model/id/usage metadata")
-    usage = metadata.get("execution", {}).get("llm_usage", {})
-    if usage.get("model_calls") != expected_model_calls:
-        raise ArtifactValidationError("metadata model_calls does not match trace")
-    if not isinstance(usage.get("total_tokens"), int) or usage["total_tokens"] <= 0:
-        raise ArtifactValidationError("metadata total token usage is missing")
-    if metadata.get("execution", {}).get("trace_event_count") != len(events):
-        raise ArtifactValidationError("metadata trace_event_count mismatch")
+    total_tokens = sum(
+        int(event["details"]["usage"].get("total_tokens") or 0)
+        for event in llm_responses
+    )
+    if total_tokens <= 0:
+        raise ArtifactValidationError("Trace total token usage is missing")
+    return {
+        "run_id": run_id,
+        "model_calls": len(llm_responses),
+        "total_tokens": total_tokens,
+    }
 
 
 def run_validation() -> dict[str, Any]:
@@ -186,7 +206,7 @@ def run_validation() -> dict[str, Any]:
     issue_counts = validate_outputs(repository)
     metadata = load_json(METADATA_PATH)
     events = load_trace(TRACE_PATH)
-    validate_trace_and_metadata(repository, metadata, events)
+    trace_summary = validate_trace_and_metadata(repository, metadata, events)
 
     architecture_path = PROJECT_ROOT / "architecture.md"
     report_paths = sorted(PROJECT_ROOT.glob("individual_*.md"))
@@ -199,9 +219,9 @@ def run_validation() -> dict[str, Any]:
         "cases": len(repository.cases),
         "outputs": len(list(OUTPUT_DIR.glob("*.json"))),
         "trace_events": len(events),
-        "model_calls": metadata["execution"]["llm_usage"]["model_calls"],
+        "model_calls": trace_summary["model_calls"],
         "issue_counts": dict(sorted(issue_counts.items())),
-        "run_id": metadata["run_id"],
+        "run_id": trace_summary["run_id"],
     }
 
 

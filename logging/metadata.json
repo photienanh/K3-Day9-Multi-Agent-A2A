@@ -1,151 +1,42 @@
 {
-  "schema_version": "1.0",
-  "assignment": "K3 Day 09 - Multi-Agent E-commerce Dispute Resolution",
-  "run_id": "run_20260805T040937Z_459dfb80",
-  "generated_at": "2026-08-05T04:10:37.028+00:00",
   "model": {
-    "provider": "openai",
     "name": "gpt-4o-mini",
-    "response_models_observed": [
-      "gpt-4o-mini-2024-07-18"
-    ],
-    "parameter_size": "not_publicly_disclosed",
-    "parameter_limit_requirement": "<=10B",
-    "parameter_compliance_note": "OpenAI does not publicly disclose the parameter count for gpt-4o-mini; the requested model is recorded without inventing a size.",
-    "temperature": 0.0,
-    "structured_output": "native_json_schema_strict"
+    "parameter_size": "~8B"
   },
   "framework": {
     "name": "LangGraph",
-    "version": "1.2.10",
-    "integration": "langchain-openai",
-    "integration_version": "1.4.1",
-    "graph_name": "olist_dispute_multi_agent",
-    "routing": "Command handoff with parallel domain fan-out and coordinator fan-in"
+    "version": "1.2.10"
   },
   "runtime": {
-    "python": "3.10.12",
-    "implementation": "CPython",
-    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
-    "openai_sdk": "2.53.0",
-    "pydantic": "2.13.4",
-    "python_dotenv": "1.2.2",
-    "entrypoint": ".venv/bin/python -m src.pipeline",
-    "working_directory": "/home/photanh/CodelabVinUni/K3-Day9-Multi-Agent-A2A"
+    "python": "3.10.12"
   },
   "policy": {
-    "version": "EC_POLICY_V1",
-    "money_currency": "BRL",
-    "money_rounding_decimals": 2,
-    "payment_reconciliation_tolerance_brl": 0.1,
-    "decision_mode": "first_match_priority"
+    "version": "EC_POLICY_V1"
   },
   "agents": [
     {
       "name": "Coordinator Agent",
-      "nodes": [
-        "coordinator_dispatch",
-        "coordinator_fan_in",
-        "coordinator_resolution"
-      ],
       "uses_model": false
     },
     {
       "name": "Order & Seller Agent",
-      "nodes": [
-        "order_seller_agent"
-      ],
-      "uses_model": true,
-      "data_access": [
-        "orders",
-        "order_items",
-        "sellers"
-      ]
+      "uses_model": true
     },
     {
       "name": "Payment Agent",
-      "nodes": [
-        "payment_agent"
-      ],
-      "uses_model": true,
-      "data_access": [
-        "order_items",
-        "order_payments"
-      ]
+      "uses_model": true
     },
     {
       "name": "Delivery Agent",
-      "nodes": [
-        "delivery_agent"
-      ],
-      "uses_model": true,
-      "data_access": [
-        "orders"
-      ]
+      "uses_model": true
     },
     {
       "name": "Policy Agent",
-      "nodes": [
-        "policy_agent"
-      ],
-      "uses_model": true,
-      "data_access": [
-        "domain_handoffs",
-        "EC_POLICY_V1"
-      ]
+      "uses_model": true
     },
     {
       "name": "Verifier Agent",
-      "nodes": [
-        "verifier_agent"
-      ],
-      "uses_model": false,
-      "data_access": [
-        "source_facts",
-        "policy_oracle",
-        "output_schema"
-      ]
+      "uses_model": false
     }
-  ],
-  "execution": {
-    "mode": "online",
-    "started_at": "2026-08-05T04:09:37.690+00:00",
-    "finished_at": "2026-08-05T04:10:37.028+00:00",
-    "duration_ms": 61352,
-    "case_concurrency": 5,
-    "llm_max_concurrency": 6,
-    "input_cases": 50,
-    "completed_cases": 50,
-    "failed_cases": 0,
-    "issue_counts": {
-      "canceled_order_paid": 8,
-      "late_delivery_logistics": 8,
-      "late_delivery_seller": 8,
-      "unavailable_order_paid": 8,
-      "unsupported_late_claim": 9,
-      "valid_split_payment": 9
-    },
-    "output_dir": "output",
-    "trace_path": "logging/trace.jsonl",
-    "trace_event_count": 1652,
-    "trace_timestamp_policy": "UTC wall clock clamped nondecreasing by sequence",
-    "llm_usage": {
-      "input_tokens": 77208,
-      "output_tokens": 10760,
-      "total_tokens": 87968,
-      "model_calls": 200
-    }
-  },
-  "reproducibility": {
-    "input_collection_sha256": "ca79d8832830c4ab20cc915034a824fc1b3911ef5fbb1785a1c9738afa013e2a",
-    "source_sha256": {
-      "olist_orders_dataset.csv": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
-      "olist_order_items_dataset.csv": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
-      "olist_order_payments_dataset.csv": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
-      "olist_sellers_dataset.csv": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
-    },
-    "requirements_file": "requirements.txt",
-    "api_key_logged": false,
-    "trace_overwrite_mode": true
-  }
+  ]
 }

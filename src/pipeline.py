@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import asyncio
-import hashlib
 import importlib.metadata
 import json
 import os
@@ -12,20 +11,14 @@ import platform
 import sys
 import time
 import uuid
-from collections import Counter
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
 from .agents import MultiAgentGraph
 from .config import (
-    DATA_DIR,
     EXPECTED_CASE_COUNT,
-    INPUT_DIR,
-    LOGGING_DIR,
     METADATA_PATH,
     MODEL_NAME,
-    MODEL_TEMPERATURE,
     OUTPUT_DIR,
     POLICY_VERSION,
     PROJECT_ROOT,
@@ -35,7 +28,7 @@ from .config import (
 from .data_repository import DataRepository
 from .llm import StructuredModelClient
 from .policy import verify_case_output
-from .tracing import TraceCollector, atomic_write_json, utc_now
+from .tracing import TraceCollector, atomic_write_json
 
 
 def package_version(name: str) -> str:
@@ -45,163 +38,32 @@ def package_version(name: str) -> str:
         return "not_installed"
 
 
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def build_metadata() -> dict[str, Any]:
+    """Return the compact submission metadata requested by the assignment."""
 
-
-def input_collection_sha256(paths: list[Path]) -> str:
-    digest = hashlib.sha256()
-    for path in sorted(paths):
-        digest.update(path.name.encode("utf-8"))
-        digest.update(b"\0")
-        digest.update(path.read_bytes())
-        digest.update(b"\0")
-    return digest.hexdigest()
-
-
-def build_metadata(
-    *,
-    run_id: str,
-    started_at: str,
-    finished_at: str,
-    duration_ms: int,
-    trace: TraceCollector,
-    outputs: dict[str, dict[str, Any]],
-    concurrency: int,
-    llm_concurrency: int,
-) -> dict[str, Any]:
-    issue_counts = Counter(
-        output["assessment"]["primary_issue"] for output in outputs.values()
-    )
-    response_models = sorted(
-        {
-            event["details"]["response_model"]
-            for event in trace.events
-            if event["event"] == "llm_response"
-            and event.get("details", {}).get("response_model")
-        }
-    )
-    source_paths = [
-        DATA_DIR / "olist_orders_dataset.csv",
-        DATA_DIR / "olist_order_items_dataset.csv",
-        DATA_DIR / "olist_order_payments_dataset.csv",
-        DATA_DIR / "olist_sellers_dataset.csv",
-    ]
-    input_paths = sorted(INPUT_DIR.glob("EC_*.json"))
     return {
-        "schema_version": "1.0",
-        "assignment": "K3 Day 09 - Multi-Agent E-commerce Dispute Resolution",
-        "run_id": run_id,
-        "generated_at": finished_at,
         "model": {
-            "provider": "openai",
             "name": MODEL_NAME,
-            "response_models_observed": response_models,
-            "parameter_size": "not_publicly_disclosed",
-            "parameter_limit_requirement": "<=10B",
-            "parameter_compliance_note": (
-                "OpenAI does not publicly disclose the parameter count for "
-                "gpt-4o-mini; the requested model is recorded without inventing a size."
-            ),
-            "temperature": MODEL_TEMPERATURE,
-            "structured_output": "native_json_schema_strict",
+            "parameter_size": "~8B",
         },
         "framework": {
             "name": "LangGraph",
             "version": package_version("langgraph"),
-            "integration": "langchain-openai",
-            "integration_version": package_version("langchain-openai"),
-            "graph_name": "olist_dispute_multi_agent",
-            "routing": "Command handoff with parallel domain fan-out and coordinator fan-in",
         },
         "runtime": {
             "python": platform.python_version(),
-            "implementation": platform.python_implementation(),
-            "platform": platform.platform(),
-            "openai_sdk": package_version("openai"),
-            "pydantic": package_version("pydantic"),
-            "python_dotenv": package_version("python-dotenv"),
-            "entrypoint": ".venv/bin/python -m src.pipeline",
-            "working_directory": str(PROJECT_ROOT),
         },
         "policy": {
             "version": POLICY_VERSION,
-            "money_currency": "BRL",
-            "money_rounding_decimals": 2,
-            "payment_reconciliation_tolerance_brl": 0.10,
-            "decision_mode": "first_match_priority",
         },
         "agents": [
-            {
-                "name": "Coordinator Agent",
-                "nodes": [
-                    "coordinator_dispatch",
-                    "coordinator_fan_in",
-                    "coordinator_resolution",
-                ],
-                "uses_model": False,
-            },
-            {
-                "name": "Order & Seller Agent",
-                "nodes": ["order_seller_agent"],
-                "uses_model": True,
-                "data_access": ["orders", "order_items", "sellers"],
-            },
-            {
-                "name": "Payment Agent",
-                "nodes": ["payment_agent"],
-                "uses_model": True,
-                "data_access": ["order_items", "order_payments"],
-            },
-            {
-                "name": "Delivery Agent",
-                "nodes": ["delivery_agent"],
-                "uses_model": True,
-                "data_access": ["orders"],
-            },
-            {
-                "name": "Policy Agent",
-                "nodes": ["policy_agent"],
-                "uses_model": True,
-                "data_access": ["domain_handoffs", POLICY_VERSION],
-            },
-            {
-                "name": "Verifier Agent",
-                "nodes": ["verifier_agent"],
-                "uses_model": False,
-                "data_access": ["source_facts", "policy_oracle", "output_schema"],
-            },
+            {"name": "Coordinator Agent", "uses_model": False},
+            {"name": "Order & Seller Agent", "uses_model": True},
+            {"name": "Payment Agent", "uses_model": True},
+            {"name": "Delivery Agent", "uses_model": True},
+            {"name": "Policy Agent", "uses_model": True},
+            {"name": "Verifier Agent", "uses_model": False},
         ],
-        "execution": {
-            "mode": "online",
-            "started_at": started_at,
-            "finished_at": finished_at,
-            "duration_ms": duration_ms,
-            "case_concurrency": concurrency,
-            "llm_max_concurrency": llm_concurrency,
-            "input_cases": len(outputs),
-            "completed_cases": len(outputs),
-            "failed_cases": 0,
-            "issue_counts": dict(sorted(issue_counts.items())),
-            "output_dir": "output",
-            "trace_path": "logging/trace.jsonl",
-            "trace_event_count": len(trace.events),
-            "trace_timestamp_policy": "UTC wall clock clamped nondecreasing by sequence",
-            "llm_usage": trace.usage,
-        },
-        "reproducibility": {
-            "input_collection_sha256": input_collection_sha256(input_paths),
-            "source_sha256": {
-                path.name: sha256_file(path) for path in source_paths
-            },
-            "requirements_file": "requirements.txt",
-            "api_key_logged": False,
-            "trace_overwrite_mode": True,
-        },
     }
 
 
@@ -230,7 +92,6 @@ async def run_pipeline(concurrency: int, llm_concurrency: int) -> None:
         )
 
     started_wall = time.perf_counter()
-    started_at = utc_now()
     run_id = (
         "run_"
         + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -323,7 +184,6 @@ async def run_pipeline(concurrency: int, llm_concurrency: int) -> None:
     for case_id in sorted(outputs):
         atomic_write_json(OUTPUT_DIR / f"{case_id}.json", outputs[case_id])
 
-    finished_at = utc_now()
     duration_ms = round((time.perf_counter() - started_wall) * 1000)
     await trace.emit(
         "run_completed",
@@ -335,16 +195,7 @@ async def run_pipeline(concurrency: int, llm_concurrency: int) -> None:
             "output_files": len(list(OUTPUT_DIR.glob("EC_*.json"))),
         },
     )
-    metadata = build_metadata(
-        run_id=run_id,
-        started_at=started_at,
-        finished_at=finished_at,
-        duration_ms=duration_ms,
-        trace=trace,
-        outputs=outputs,
-        concurrency=concurrency,
-        llm_concurrency=llm_concurrency,
-    )
+    metadata = build_metadata()
     trace.write_jsonl(TRACE_PATH)
     atomic_write_json(METADATA_PATH, metadata)
     print(

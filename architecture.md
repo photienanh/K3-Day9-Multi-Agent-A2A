@@ -95,7 +95,7 @@ Chỉ sau khi cả 50 graph hoàn tất và đều pass, pipeline mới ghi 50 o
 mới hoàn toàn `logging/trace.jsonl` và `logging/metadata.json` bằng atomic replace.
 Run lỗi không thay trace/metadata thành công trước đó.
 
-## 7. Runtime và tái lập
+## 7. Runtime
 
 Entry point online:
 
@@ -103,9 +103,3 @@ Entry point online:
 .venv/bin/python -m src.pipeline
 .venv/bin/python -m src.validate
 ```
-
-Pipeline giới hạn đồng thời ở cả cấp case và request model. Metadata ghi version
-framework/SDK/runtime, SHA-256 input và bốn CSV sử dụng, issue distribution, thời
-gian chạy và token usage thực. Số parameter của `gpt-4o-mini` được ghi là
-`not_publicly_disclosed`; hệ thống không bịa một con số mà nhà cung cấp không công
-bố.
