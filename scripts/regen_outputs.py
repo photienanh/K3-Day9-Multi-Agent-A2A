@@ -20,7 +20,8 @@ for f in sorted((ROOT / "input").glob("EC_*.json")):
     pf = pa.analyze(oid, of.get("item_total", 0), of.get("freight_total", 0))
     df = da.analyze(of)
     dec = pol.decide(of, pf, df)
-    out = pol.draft(case["case_id"], of, pf, dec)
+    # Regen without LLM: llm_agrees=None (no agree/disagree adjustment).
+    out = pol.draft(case["case_id"], of, pf, dec, df, llm_agrees=None)
     errs = ver.verify(out)
     if errs:
         raise SystemExit(f"{case['case_id']} verify fail {errs}")

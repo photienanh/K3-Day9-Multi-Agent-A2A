@@ -1,351 +1,351 @@
-{"case_id": "EC_001", "step": 0, "from_agent": "research_agent", "to_agent": "coordinator", "summary": "policy=EC_POLICY_V1 web_ok=True source=https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", "ts": "2026-08-05T11:29:08+0700"}
-{"case_id": "EC_001", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for e2a03ccf5ea816036608b2d8c3ab8e60", "ts": "2026-08-05T11:29:08+0700"}
-{"case_id": "EC_001", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['f7496d659ca9fdaf323c0aae84176632']", "ts": "2026-08-05T11:29:08+0700"}
-{"case_id": "EC_001", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=131.94 match=True", "ts": "2026-08-05T11:29:08+0700"}
-{"case_id": "EC_001", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:29:08+0700"}
-{"case_id": "EC_001", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=12.04 action=refund_freight", "ts": "2026-08-05T11:29:08+0700"}
-{"case_id": "EC_001", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=4214 raw=unsupported_late_claim", "ts": "2026-08-05T11:29:12+0700"}
-{"case_id": "EC_001", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:12+0700"}
-{"case_id": "EC_002", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 8067c5e4834f3c0a3c8a4e921d65c5b1", "ts": "2026-08-05T11:29:12+0700"}
-{"case_id": "EC_002", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=2 sellers_late=[]", "ts": "2026-08-05T11:29:12+0700"}
-{"case_id": "EC_002", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=180.62 match=True", "ts": "2026-08-05T11:29:12+0700"}
-{"case_id": "EC_002", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:12+0700"}
-{"case_id": "EC_002", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:29:12+0700"}
-{"case_id": "EC_002", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3531 raw=unsupported_late_claim", "ts": "2026-08-05T11:29:16+0700"}
-{"case_id": "EC_002", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:16+0700"}
-{"case_id": "EC_003", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 71303d7e93b399f5bcd537d124c0bcfa", "ts": "2026-08-05T11:29:16+0700"}
-{"case_id": "EC_003", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T11:29:16+0700"}
-{"case_id": "EC_003", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=109.34 match=True", "ts": "2026-08-05T11:29:16+0700"}
-{"case_id": "EC_003", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:16+0700"}
-{"case_id": "EC_003", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=109.34 action=issue_full_refund", "ts": "2026-08-05T11:29:16+0700"}
-{"case_id": "EC_003", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3489 raw=canceled_order_paid", "ts": "2026-08-05T11:29:19+0700"}
-{"case_id": "EC_003", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:19+0700"}
-{"case_id": "EC_004", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for fd28a6dfe413804d0b89b7c9abf5b1f3", "ts": "2026-08-05T11:29:19+0700"}
-{"case_id": "EC_004", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:29:19+0700"}
-{"case_id": "EC_004", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=211.96 match=True", "ts": "2026-08-05T11:29:19+0700"}
-{"case_id": "EC_004", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:19+0700"}
-{"case_id": "EC_004", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:29:19+0700"}
-{"case_id": "EC_004", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3361 raw=valid_split_payment", "ts": "2026-08-05T11:29:23+0700"}
-{"case_id": "EC_004", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:23+0700"}
-{"case_id": "EC_005", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 9a31fd9d697e9670777501f720773fd9", "ts": "2026-08-05T11:29:23+0700"}
-{"case_id": "EC_005", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:29:23+0700"}
-{"case_id": "EC_005", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=1191.5 match=False", "ts": "2026-08-05T11:29:23+0700"}
-{"case_id": "EC_005", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:23+0700"}
-{"case_id": "EC_005", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=1191.5 action=issue_full_refund", "ts": "2026-08-05T11:29:23+0700"}
-{"case_id": "EC_005", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3496 raw=unsupported_late_claim", "ts": "2026-08-05T11:29:26+0700"}
-{"case_id": "EC_005", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:26+0700"}
-{"case_id": "EC_006", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for fe51b7fac3bea42115fa1c3b8973cba7", "ts": "2026-08-05T11:29:26+0700"}
-{"case_id": "EC_006", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:29:26+0700"}
-{"case_id": "EC_006", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=44.38 match=True", "ts": "2026-08-05T11:29:26+0700"}
-{"case_id": "EC_006", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:26+0700"}
-{"case_id": "EC_006", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:29:26+0700"}
-{"case_id": "EC_006", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3312 raw=valid_split_payment", "ts": "2026-08-05T11:29:30+0700"}
-{"case_id": "EC_006", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:30+0700"}
-{"case_id": "EC_007", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for ded456690bcb2ffd4def86541479037f", "ts": "2026-08-05T11:29:30+0700"}
-{"case_id": "EC_007", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T11:29:30+0700"}
-{"case_id": "EC_007", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=56.4 match=True", "ts": "2026-08-05T11:29:30+0700"}
-{"case_id": "EC_007", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:30+0700"}
-{"case_id": "EC_007", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=56.4 action=issue_full_refund", "ts": "2026-08-05T11:29:30+0700"}
-{"case_id": "EC_007", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3527 raw=canceled_order_paid", "ts": "2026-08-05T11:29:33+0700"}
-{"case_id": "EC_007", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:33+0700"}
-{"case_id": "EC_008", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2c0032906c603dcc21cd954828fa77d0", "ts": "2026-08-05T11:29:33+0700"}
-{"case_id": "EC_008", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=['c1ed9e3daf6154542826a6996af0fb8c']", "ts": "2026-08-05T11:29:33+0700"}
-{"case_id": "EC_008", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=250.57 match=True", "ts": "2026-08-05T11:29:33+0700"}
-{"case_id": "EC_008", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:33+0700"}
-{"case_id": "EC_008", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=250.57 action=issue_full_refund", "ts": "2026-08-05T11:29:33+0700"}
-{"case_id": "EC_008", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3573 raw=canceled_order_paid", "ts": "2026-08-05T11:29:37+0700"}
-{"case_id": "EC_008", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:37+0700"}
-{"case_id": "EC_009", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 3aaee056441dcae251f360b1c71a7279", "ts": "2026-08-05T11:29:37+0700"}
-{"case_id": "EC_009", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:29:37+0700"}
-{"case_id": "EC_009", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=135.35 match=True", "ts": "2026-08-05T11:29:37+0700"}
-{"case_id": "EC_009", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:29:37+0700"}
-{"case_id": "EC_009", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=12.36 action=refund_freight", "ts": "2026-08-05T11:29:37+0700"}
-{"case_id": "EC_009", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3363 raw=valid_split_payment", "ts": "2026-08-05T11:29:40+0700"}
-{"case_id": "EC_009", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:40+0700"}
-{"case_id": "EC_010", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 3a119f52de09d1b2700815732def8b47", "ts": "2026-08-05T11:29:40+0700"}
-{"case_id": "EC_010", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:29:40+0700"}
-{"case_id": "EC_010", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=27.77 match=True", "ts": "2026-08-05T11:29:40+0700"}
-{"case_id": "EC_010", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:29:40+0700"}
-{"case_id": "EC_010", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=7.78 action=refund_freight", "ts": "2026-08-05T11:29:40+0700"}
-{"case_id": "EC_010", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3137 raw=valid_split_payment", "ts": "2026-08-05T11:29:43+0700"}
-{"case_id": "EC_010", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:43+0700"}
-{"case_id": "EC_011", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2636a02ee7de9590df86a4c24b739c49", "ts": "2026-08-05T11:29:43+0700"}
-{"case_id": "EC_011", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:29:43+0700"}
-{"case_id": "EC_011", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=142.09 match=False", "ts": "2026-08-05T11:29:43+0700"}
-{"case_id": "EC_011", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:43+0700"}
-{"case_id": "EC_011", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=142.09 action=issue_full_refund", "ts": "2026-08-05T11:29:43+0700"}
-{"case_id": "EC_011", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3380 raw=unsupported_late_claim", "ts": "2026-08-05T11:29:47+0700"}
-{"case_id": "EC_011", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:47+0700"}
-{"case_id": "EC_012", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 103de323ece563a1012b4b6adf5a81b2", "ts": "2026-08-05T11:29:47+0700"}
-{"case_id": "EC_012", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:29:47+0700"}
-{"case_id": "EC_012", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=114.67 match=True", "ts": "2026-08-05T11:29:47+0700"}
-{"case_id": "EC_012", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:29:47+0700"}
-{"case_id": "EC_012", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=9.67 action=refund_freight", "ts": "2026-08-05T11:29:47+0700"}
-{"case_id": "EC_012", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3140 raw=valid_split_payment", "ts": "2026-08-05T11:29:50+0700"}
-{"case_id": "EC_012", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:50+0700"}
-{"case_id": "EC_013", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for ee234bfd26ca588915483995d811c1d0", "ts": "2026-08-05T11:29:50+0700"}
-{"case_id": "EC_013", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:29:50+0700"}
-{"case_id": "EC_013", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=619.86 match=False", "ts": "2026-08-05T11:29:50+0700"}
-{"case_id": "EC_013", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:50+0700"}
-{"case_id": "EC_013", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=619.86 action=issue_full_refund", "ts": "2026-08-05T11:29:50+0700"}
-{"case_id": "EC_013", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3259 raw=unsupported_late_claim", "ts": "2026-08-05T11:29:53+0700"}
-{"case_id": "EC_013", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:53+0700"}
-{"case_id": "EC_014", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for b93b079468bdf6a20fd54cf45d1e03b6", "ts": "2026-08-05T11:29:53+0700"}
-{"case_id": "EC_014", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:29:53+0700"}
-{"case_id": "EC_014", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=72.14 match=True", "ts": "2026-08-05T11:29:53+0700"}
-{"case_id": "EC_014", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:53+0700"}
-{"case_id": "EC_014", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:29:53+0700"}
-{"case_id": "EC_014", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3119 raw=valid_split_payment", "ts": "2026-08-05T11:29:56+0700"}
-{"case_id": "EC_014", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:29:56+0700"}
-{"case_id": "EC_015", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for c504f1f5fd54cc8398d57dc0da49de01", "ts": "2026-08-05T11:29:56+0700"}
-{"case_id": "EC_015", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T11:29:56+0700"}
-{"case_id": "EC_015", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=69.49 match=True", "ts": "2026-08-05T11:29:56+0700"}
-{"case_id": "EC_015", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:29:56+0700"}
-{"case_id": "EC_015", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=69.49 action=issue_full_refund", "ts": "2026-08-05T11:29:56+0700"}
-{"case_id": "EC_015", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3233 raw=canceled_order_paid", "ts": "2026-08-05T11:30:00+0700"}
-{"case_id": "EC_015", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:00+0700"}
-{"case_id": "EC_016", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for a88edef387e2a7e457695664bf0ddfc0", "ts": "2026-08-05T11:30:00+0700"}
-{"case_id": "EC_016", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:30:00+0700"}
-{"case_id": "EC_016", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=52.52 match=True", "ts": "2026-08-05T11:30:00+0700"}
-{"case_id": "EC_016", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:30:00+0700"}
-{"case_id": "EC_016", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=14.52 action=refund_freight", "ts": "2026-08-05T11:30:00+0700"}
-{"case_id": "EC_016", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3094 raw=valid_split_payment", "ts": "2026-08-05T11:30:03+0700"}
-{"case_id": "EC_016", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:03+0700"}
-{"case_id": "EC_017", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for dd6ee4d96f0f3cf1432c3b82818e0387", "ts": "2026-08-05T11:30:03+0700"}
-{"case_id": "EC_017", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:30:03+0700"}
-{"case_id": "EC_017", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=72.76 match=True", "ts": "2026-08-05T11:30:03+0700"}
-{"case_id": "EC_017", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:30:03+0700"}
-{"case_id": "EC_017", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=12.76 action=refund_freight", "ts": "2026-08-05T11:30:03+0700"}
-{"case_id": "EC_017", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=2916 raw=valid_split_payment", "ts": "2026-08-05T11:30:06+0700"}
-{"case_id": "EC_017", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:06+0700"}
-{"case_id": "EC_018", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 97c8513f2504aa8ec05534307a703dea", "ts": "2026-08-05T11:30:06+0700"}
-{"case_id": "EC_018", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:30:06+0700"}
-{"case_id": "EC_018", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=27.68 match=True", "ts": "2026-08-05T11:30:06+0700"}
-{"case_id": "EC_018", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:06+0700"}
-{"case_id": "EC_018", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:30:06+0700"}
-{"case_id": "EC_018", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3406 raw=valid_split_payment", "ts": "2026-08-05T11:30:09+0700"}
-{"case_id": "EC_018", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:09+0700"}
-{"case_id": "EC_019", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 31f935babbc97f5990e0ffd128e19541", "ts": "2026-08-05T11:30:09+0700"}
-{"case_id": "EC_019", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:30:09+0700"}
-{"case_id": "EC_019", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=74.7 match=False", "ts": "2026-08-05T11:30:09+0700"}
-{"case_id": "EC_019", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:09+0700"}
-{"case_id": "EC_019", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=74.7 action=issue_full_refund", "ts": "2026-08-05T11:30:09+0700"}
-{"case_id": "EC_019", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3547 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:13+0700"}
-{"case_id": "EC_019", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:13+0700"}
-{"case_id": "EC_020", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 96087ef44ca9abdbc4c372a3dd3c859f", "ts": "2026-08-05T11:30:13+0700"}
-{"case_id": "EC_020", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:30:13+0700"}
-{"case_id": "EC_020", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=269.08 match=True", "ts": "2026-08-05T11:30:13+0700"}
-{"case_id": "EC_020", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:13+0700"}
-{"case_id": "EC_020", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:30:13+0700"}
-{"case_id": "EC_020", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3341 raw=valid_split_payment", "ts": "2026-08-05T11:30:16+0700"}
-{"case_id": "EC_020", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:16+0700"}
-{"case_id": "EC_021", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 13d341318c77969f10d77e1382957542", "ts": "2026-08-05T11:30:16+0700"}
-{"case_id": "EC_021", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T11:30:16+0700"}
-{"case_id": "EC_021", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=38.86 match=True", "ts": "2026-08-05T11:30:16+0700"}
-{"case_id": "EC_021", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:16+0700"}
-{"case_id": "EC_021", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=38.86 action=issue_full_refund", "ts": "2026-08-05T11:30:16+0700"}
-{"case_id": "EC_021", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3536 raw=canceled_order_paid", "ts": "2026-08-05T11:30:20+0700"}
-{"case_id": "EC_021", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:20+0700"}
-{"case_id": "EC_022", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 1f7565efbb90c33b80f467d6a75332c5", "ts": "2026-08-05T11:30:20+0700"}
-{"case_id": "EC_022", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['02d35243ea2e497335cd0f076b45675d']", "ts": "2026-08-05T11:30:20+0700"}
-{"case_id": "EC_022", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=268.98 match=True", "ts": "2026-08-05T11:30:20+0700"}
-{"case_id": "EC_022", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:30:20+0700"}
-{"case_id": "EC_022", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=19.98 action=refund_freight", "ts": "2026-08-05T11:30:20+0700"}
-{"case_id": "EC_022", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3503 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:23+0700"}
-{"case_id": "EC_022", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:23+0700"}
-{"case_id": "EC_023", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 5fba7c57daf631028d2a584c52799e24", "ts": "2026-08-05T11:30:23+0700"}
-{"case_id": "EC_023", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:30:23+0700"}
-{"case_id": "EC_023", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=73.34 match=True", "ts": "2026-08-05T11:30:23+0700"}
-{"case_id": "EC_023", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:23+0700"}
-{"case_id": "EC_023", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:30:23+0700"}
-{"case_id": "EC_023", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3486 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:27+0700"}
-{"case_id": "EC_023", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:27+0700"}
-{"case_id": "EC_024", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for d8716a985f69a46751cc046b0fea0d98", "ts": "2026-08-05T11:30:27+0700"}
-{"case_id": "EC_024", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:30:27+0700"}
-{"case_id": "EC_024", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=87.08 match=False", "ts": "2026-08-05T11:30:27+0700"}
-{"case_id": "EC_024", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:27+0700"}
-{"case_id": "EC_024", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=87.08 action=issue_full_refund", "ts": "2026-08-05T11:30:27+0700"}
-{"case_id": "EC_024", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3489 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:30+0700"}
-{"case_id": "EC_024", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:30+0700"}
-{"case_id": "EC_025", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for e06ff711ddcab05c3651a9b1bb003950", "ts": "2026-08-05T11:30:30+0700"}
-{"case_id": "EC_025", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=3 sellers_late=[]", "ts": "2026-08-05T11:30:30+0700"}
-{"case_id": "EC_025", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=184.32 match=True", "ts": "2026-08-05T11:30:30+0700"}
-{"case_id": "EC_025", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:30+0700"}
-{"case_id": "EC_025", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:30:30+0700"}
-{"case_id": "EC_025", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3356 raw=valid_split_payment", "ts": "2026-08-05T11:30:34+0700"}
-{"case_id": "EC_025", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:34+0700"}
-{"case_id": "EC_026", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 966f96af9d189dc428ff04ebbca821b8", "ts": "2026-08-05T11:30:34+0700"}
-{"case_id": "EC_026", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T11:30:34+0700"}
-{"case_id": "EC_026", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=142.34 match=True", "ts": "2026-08-05T11:30:34+0700"}
-{"case_id": "EC_026", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:34+0700"}
-{"case_id": "EC_026", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=142.34 action=issue_full_refund", "ts": "2026-08-05T11:30:34+0700"}
-{"case_id": "EC_026", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3531 raw=canceled_order_paid", "ts": "2026-08-05T11:30:37+0700"}
-{"case_id": "EC_026", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:37+0700"}
-{"case_id": "EC_027", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2f346d92b11fcc7c342b3392b174cf3b", "ts": "2026-08-05T11:30:37+0700"}
-{"case_id": "EC_027", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:30:37+0700"}
-{"case_id": "EC_027", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=74.7 match=False", "ts": "2026-08-05T11:30:37+0700"}
-{"case_id": "EC_027", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:37+0700"}
-{"case_id": "EC_027", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=74.7 action=issue_full_refund", "ts": "2026-08-05T11:30:37+0700"}
-{"case_id": "EC_027", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3527 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:41+0700"}
-{"case_id": "EC_027", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:41+0700"}
-{"case_id": "EC_028", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 80f0181edc2f4a5bd3384a3c39a83cee", "ts": "2026-08-05T11:30:41+0700"}
-{"case_id": "EC_028", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:30:41+0700"}
-{"case_id": "EC_028", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=61.19 match=False", "ts": "2026-08-05T11:30:41+0700"}
-{"case_id": "EC_028", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:41+0700"}
-{"case_id": "EC_028", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=61.19 action=issue_full_refund", "ts": "2026-08-05T11:30:41+0700"}
-{"case_id": "EC_028", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3054 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:44+0700"}
-{"case_id": "EC_028", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:44+0700"}
-{"case_id": "EC_029", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 5c932e0a181410b67c77daaed30991af", "ts": "2026-08-05T11:30:44+0700"}
-{"case_id": "EC_029", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=3 sellers_late=['88460e8ebdecbfecb5f9601833981930']", "ts": "2026-08-05T11:30:44+0700"}
-{"case_id": "EC_029", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=492.21 match=True", "ts": "2026-08-05T11:30:44+0700"}
-{"case_id": "EC_029", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:30:44+0700"}
-{"case_id": "EC_029", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=42.51 action=refund_freight", "ts": "2026-08-05T11:30:44+0700"}
-{"case_id": "EC_029", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3410 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:47+0700"}
-{"case_id": "EC_029", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:47+0700"}
-{"case_id": "EC_030", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 405be8487a7fde1db0bc31ad6b08050a", "ts": "2026-08-05T11:30:47+0700"}
-{"case_id": "EC_030", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:30:47+0700"}
-{"case_id": "EC_030", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=3 total=25.84 match=True", "ts": "2026-08-05T11:30:47+0700"}
-{"case_id": "EC_030", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:47+0700"}
-{"case_id": "EC_030", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:30:47+0700"}
-{"case_id": "EC_030", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3150 raw=valid_split_payment", "ts": "2026-08-05T11:30:51+0700"}
-{"case_id": "EC_030", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:51+0700"}
-{"case_id": "EC_031", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 4274ff4a5df607e75b32b80e2f8eda3f", "ts": "2026-08-05T11:30:51+0700"}
-{"case_id": "EC_031", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:30:51+0700"}
-{"case_id": "EC_031", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=89.44 match=True", "ts": "2026-08-05T11:30:51+0700"}
-{"case_id": "EC_031", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:30:51+0700"}
-{"case_id": "EC_031", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=7.44 action=refund_freight", "ts": "2026-08-05T11:30:51+0700"}
-{"case_id": "EC_031", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3333 raw=valid_split_payment", "ts": "2026-08-05T11:30:54+0700"}
-{"case_id": "EC_031", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:54+0700"}
-{"case_id": "EC_032", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for c4dad201936ed30eef3c94fafa59ed6e", "ts": "2026-08-05T11:30:54+0700"}
-{"case_id": "EC_032", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=2 sellers_late=[]", "ts": "2026-08-05T11:30:54+0700"}
-{"case_id": "EC_032", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=267.66 match=True", "ts": "2026-08-05T11:30:54+0700"}
-{"case_id": "EC_032", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:30:54+0700"}
-{"case_id": "EC_032", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:30:54+0700"}
-{"case_id": "EC_032", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3567 raw=unsupported_late_claim", "ts": "2026-08-05T11:30:58+0700"}
-{"case_id": "EC_032", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:30:58+0700"}
-{"case_id": "EC_033", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for a5c8f3a11dcb9bd9b0acdfb8101dfdc8", "ts": "2026-08-05T11:30:58+0700"}
-{"case_id": "EC_033", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['1025f0e2d44d7041d6cf58b6550e0bfa']", "ts": "2026-08-05T11:30:58+0700"}
-{"case_id": "EC_033", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=138.72 match=True", "ts": "2026-08-05T11:30:58+0700"}
-{"case_id": "EC_033", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:30:58+0700"}
-{"case_id": "EC_033", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=18.72 action=refund_freight", "ts": "2026-08-05T11:30:58+0700"}
-{"case_id": "EC_033", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3622 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:01+0700"}
-{"case_id": "EC_033", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:01+0700"}
-{"case_id": "EC_034", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 973acef56bf70feefa8264d4e9f300fc", "ts": "2026-08-05T11:31:01+0700"}
-{"case_id": "EC_034", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['66922902710d126a0e7d26b0e3805106']", "ts": "2026-08-05T11:31:01+0700"}
-{"case_id": "EC_034", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=146.43 match=True", "ts": "2026-08-05T11:31:01+0700"}
-{"case_id": "EC_034", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:31:01+0700"}
-{"case_id": "EC_034", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=36.43 action=refund_freight", "ts": "2026-08-05T11:31:01+0700"}
-{"case_id": "EC_034", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3425 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:05+0700"}
-{"case_id": "EC_034", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:05+0700"}
-{"case_id": "EC_035", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2478ddd1d1395639b71cf0d498d8dbf6", "ts": "2026-08-05T11:31:05+0700"}
-{"case_id": "EC_035", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:05+0700"}
-{"case_id": "EC_035", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=41.85 match=True", "ts": "2026-08-05T11:31:05+0700"}
-{"case_id": "EC_035", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:05+0700"}
-{"case_id": "EC_035", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:31:05+0700"}
-{"case_id": "EC_035", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3630 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:08+0700"}
-{"case_id": "EC_035", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:08+0700"}
-{"case_id": "EC_036", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for c609f82bcf7a90292a5940205ebd7e93", "ts": "2026-08-05T11:31:08+0700"}
-{"case_id": "EC_036", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T11:31:08+0700"}
-{"case_id": "EC_036", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=117.78 match=False", "ts": "2026-08-05T11:31:08+0700"}
-{"case_id": "EC_036", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:08+0700"}
-{"case_id": "EC_036", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=117.78 action=issue_full_refund", "ts": "2026-08-05T11:31:08+0700"}
-{"case_id": "EC_036", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3597 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:12+0700"}
-{"case_id": "EC_036", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:12+0700"}
-{"case_id": "EC_037", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for b90e46cdc30adec2f0fa041984341170", "ts": "2026-08-05T11:31:12+0700"}
-{"case_id": "EC_037", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['1ca7077d890b907f89be8c954a02686a']", "ts": "2026-08-05T11:31:12+0700"}
-{"case_id": "EC_037", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=163.79 match=True", "ts": "2026-08-05T11:31:12+0700"}
-{"case_id": "EC_037", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:31:12+0700"}
-{"case_id": "EC_037", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=14.79 action=refund_freight", "ts": "2026-08-05T11:31:12+0700"}
-{"case_id": "EC_037", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3556 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:16+0700"}
-{"case_id": "EC_037", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:16+0700"}
-{"case_id": "EC_038", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 6b27933c6a46e3d66203137ad1fdb678", "ts": "2026-08-05T11:31:16+0700"}
-{"case_id": "EC_038", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:16+0700"}
-{"case_id": "EC_038", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=205.26 match=True", "ts": "2026-08-05T11:31:16+0700"}
-{"case_id": "EC_038", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:16+0700"}
-{"case_id": "EC_038", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:31:16+0700"}
-{"case_id": "EC_038", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3467 raw=valid_split_payment", "ts": "2026-08-05T11:31:19+0700"}
-{"case_id": "EC_038", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:19+0700"}
-{"case_id": "EC_039", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 44a03ff139461361ec4cce7949663c2f", "ts": "2026-08-05T11:31:19+0700"}
-{"case_id": "EC_039", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:19+0700"}
-{"case_id": "EC_039", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=89.19 match=True", "ts": "2026-08-05T11:31:19+0700"}
-{"case_id": "EC_039", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:19+0700"}
-{"case_id": "EC_039", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:31:19+0700"}
-{"case_id": "EC_039", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3540 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:23+0700"}
-{"case_id": "EC_039", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:23+0700"}
-{"case_id": "EC_040", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 11bc240af3d9e1f77218715480a65b77", "ts": "2026-08-05T11:31:23+0700"}
-{"case_id": "EC_040", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:23+0700"}
-{"case_id": "EC_040", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=257.93 match=True", "ts": "2026-08-05T11:31:23+0700"}
-{"case_id": "EC_040", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:23+0700"}
-{"case_id": "EC_040", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:31:23+0700"}
-{"case_id": "EC_040", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3446 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:26+0700"}
-{"case_id": "EC_040", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:26+0700"}
-{"case_id": "EC_041", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 64a8b3b4c19751b51d211deb32fdc67b", "ts": "2026-08-05T11:31:26+0700"}
-{"case_id": "EC_041", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T11:31:26+0700"}
-{"case_id": "EC_041", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=53.19 match=True", "ts": "2026-08-05T11:31:26+0700"}
-{"case_id": "EC_041", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:26+0700"}
-{"case_id": "EC_041", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=53.19 action=issue_full_refund", "ts": "2026-08-05T11:31:26+0700"}
-{"case_id": "EC_041", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3673 raw=canceled_order_paid", "ts": "2026-08-05T11:31:30+0700"}
-{"case_id": "EC_041", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:30+0700"}
-{"case_id": "EC_042", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 8a5fc33c79bf3f4d9bbcc3dceb6b67c4", "ts": "2026-08-05T11:31:30+0700"}
-{"case_id": "EC_042", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:30+0700"}
-{"case_id": "EC_042", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=269.73 match=True", "ts": "2026-08-05T11:31:30+0700"}
-{"case_id": "EC_042", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:30+0700"}
-{"case_id": "EC_042", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:31:30+0700"}
-{"case_id": "EC_042", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3548 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:34+0700"}
-{"case_id": "EC_042", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:34+0700"}
-{"case_id": "EC_043", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 3ef6bcdda6193f8657168ba7e8b3e948", "ts": "2026-08-05T11:31:34+0700"}
-{"case_id": "EC_043", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['46dc3b2cc0980fb8ec44634e21d2718e']", "ts": "2026-08-05T11:31:34+0700"}
-{"case_id": "EC_043", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=217.96 match=True", "ts": "2026-08-05T11:31:34+0700"}
-{"case_id": "EC_043", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:31:34+0700"}
-{"case_id": "EC_043", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=17.97 action=refund_freight", "ts": "2026-08-05T11:31:34+0700"}
-{"case_id": "EC_043", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3598 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:37+0700"}
-{"case_id": "EC_043", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:37+0700"}
-{"case_id": "EC_044", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for d671370d11048a2dab56335d3d91823e", "ts": "2026-08-05T11:31:37+0700"}
-{"case_id": "EC_044", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['4a3ca9315b744ce9f8e9374361493884']", "ts": "2026-08-05T11:31:37+0700"}
-{"case_id": "EC_044", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=52.1 match=True", "ts": "2026-08-05T11:31:37+0700"}
-{"case_id": "EC_044", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T11:31:37+0700"}
-{"case_id": "EC_044", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=15.1 action=refund_freight", "ts": "2026-08-05T11:31:37+0700"}
-{"case_id": "EC_044", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3122 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:40+0700"}
-{"case_id": "EC_044", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:40+0700"}
-{"case_id": "EC_045", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for d67b79fea59821fda4d363d337a56c3a", "ts": "2026-08-05T11:31:40+0700"}
-{"case_id": "EC_045", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T11:31:40+0700"}
-{"case_id": "EC_045", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=69.07 match=True", "ts": "2026-08-05T11:31:40+0700"}
-{"case_id": "EC_045", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:40+0700"}
-{"case_id": "EC_045", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=69.07 action=issue_full_refund", "ts": "2026-08-05T11:31:40+0700"}
-{"case_id": "EC_045", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3275 raw=canceled_order_paid", "ts": "2026-08-05T11:31:44+0700"}
-{"case_id": "EC_045", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:44+0700"}
-{"case_id": "EC_046", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2208f3a59d7067fe62c900692f5fdcaf", "ts": "2026-08-05T11:31:44+0700"}
-{"case_id": "EC_046", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:44+0700"}
-{"case_id": "EC_046", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=126.01 match=True", "ts": "2026-08-05T11:31:44+0700"}
-{"case_id": "EC_046", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:44+0700"}
-{"case_id": "EC_046", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T11:31:44+0700"}
-{"case_id": "EC_046", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3080 raw=valid_split_payment", "ts": "2026-08-05T11:31:47+0700"}
-{"case_id": "EC_046", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:47+0700"}
-{"case_id": "EC_047", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for b04477ada8d2ad7fa9d95358baaa785d", "ts": "2026-08-05T11:31:47+0700"}
-{"case_id": "EC_047", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:47+0700"}
-{"case_id": "EC_047", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=42.8 match=True", "ts": "2026-08-05T11:31:47+0700"}
-{"case_id": "EC_047", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:47+0700"}
-{"case_id": "EC_047", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:31:47+0700"}
-{"case_id": "EC_047", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3194 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:50+0700"}
-{"case_id": "EC_047", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:50+0700"}
-{"case_id": "EC_048", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for adc253f1977c81c2c29dc7b9dd23d538", "ts": "2026-08-05T11:31:50+0700"}
-{"case_id": "EC_048", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:50+0700"}
-{"case_id": "EC_048", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=61.4 match=True", "ts": "2026-08-05T11:31:50+0700"}
-{"case_id": "EC_048", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T11:31:50+0700"}
-{"case_id": "EC_048", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T11:31:50+0700"}
-{"case_id": "EC_048", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3057 raw=unsupported_late_claim", "ts": "2026-08-05T11:31:53+0700"}
-{"case_id": "EC_048", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:53+0700"}
-{"case_id": "EC_049", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 5b9e9502eca103a28ea22a94c65e3950", "ts": "2026-08-05T11:31:53+0700"}
-{"case_id": "EC_049", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:53+0700"}
-{"case_id": "EC_049", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=45.3 match=True", "ts": "2026-08-05T11:31:53+0700"}
-{"case_id": "EC_049", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:31:53+0700"}
-{"case_id": "EC_049", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=15.31 action=refund_freight", "ts": "2026-08-05T11:31:53+0700"}
-{"case_id": "EC_049", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3150 raw=valid_split_payment", "ts": "2026-08-05T11:31:56+0700"}
-{"case_id": "EC_049", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:31:56+0700"}
-{"case_id": "EC_050", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for af0bbb47f125381ce9f3597dc70ef07b", "ts": "2026-08-05T11:31:56+0700"}
-{"case_id": "EC_050", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T11:31:56+0700"}
-{"case_id": "EC_050", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=23.6 match=True", "ts": "2026-08-05T11:31:56+0700"}
-{"case_id": "EC_050", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T11:31:56+0700"}
-{"case_id": "EC_050", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=14.1 action=refund_freight", "ts": "2026-08-05T11:31:56+0700"}
-{"case_id": "EC_050", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3199 raw=valid_split_payment", "ts": "2026-08-05T11:32:00+0700"}
-{"case_id": "EC_050", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T11:32:00+0700"}
+{"case_id": "EC_001", "step": 0, "from_agent": "research_agent", "to_agent": "coordinator", "summary": "policy=EC_POLICY_V1 web_ok=True source=https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce", "ts": "2026-08-05T12:44:13+0700"}
+{"case_id": "EC_001", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for e2a03ccf5ea816036608b2d8c3ab8e60", "ts": "2026-08-05T12:44:13+0700"}
+{"case_id": "EC_001", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['f7496d659ca9fdaf323c0aae84176632']", "ts": "2026-08-05T12:44:13+0700"}
+{"case_id": "EC_001", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=131.94 match=True", "ts": "2026-08-05T12:44:13+0700"}
+{"case_id": "EC_001", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:44:13+0700"}
+{"case_id": "EC_001", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=12.04 action=refund_freight", "ts": "2026-08-05T12:44:13+0700"}
+{"case_id": "EC_001", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3218 raw=unsupported_late_claim", "ts": "2026-08-05T12:44:16+0700"}
+{"case_id": "EC_001", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:16+0700"}
+{"case_id": "EC_002", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 8067c5e4834f3c0a3c8a4e921d65c5b1", "ts": "2026-08-05T12:44:16+0700"}
+{"case_id": "EC_002", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=2 sellers_late=[]", "ts": "2026-08-05T12:44:16+0700"}
+{"case_id": "EC_002", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=180.62 match=True", "ts": "2026-08-05T12:44:16+0700"}
+{"case_id": "EC_002", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:16+0700"}
+{"case_id": "EC_002", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:44:16+0700"}
+{"case_id": "EC_002", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3114 raw=unsupported_late_claim", "ts": "2026-08-05T12:44:19+0700"}
+{"case_id": "EC_002", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:19+0700"}
+{"case_id": "EC_003", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 71303d7e93b399f5bcd537d124c0bcfa", "ts": "2026-08-05T12:44:19+0700"}
+{"case_id": "EC_003", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T12:44:19+0700"}
+{"case_id": "EC_003", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=109.34 match=True", "ts": "2026-08-05T12:44:19+0700"}
+{"case_id": "EC_003", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:19+0700"}
+{"case_id": "EC_003", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=109.34 action=issue_full_refund", "ts": "2026-08-05T12:44:19+0700"}
+{"case_id": "EC_003", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3157 raw=canceled_order_paid", "ts": "2026-08-05T12:44:23+0700"}
+{"case_id": "EC_003", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:23+0700"}
+{"case_id": "EC_004", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for fd28a6dfe413804d0b89b7c9abf5b1f3", "ts": "2026-08-05T12:44:23+0700"}
+{"case_id": "EC_004", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:44:23+0700"}
+{"case_id": "EC_004", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=211.96 match=True", "ts": "2026-08-05T12:44:23+0700"}
+{"case_id": "EC_004", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:23+0700"}
+{"case_id": "EC_004", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:44:23+0700"}
+{"case_id": "EC_004", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3015 raw=valid_split_payment", "ts": "2026-08-05T12:44:26+0700"}
+{"case_id": "EC_004", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:26+0700"}
+{"case_id": "EC_005", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 9a31fd9d697e9670777501f720773fd9", "ts": "2026-08-05T12:44:26+0700"}
+{"case_id": "EC_005", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:44:26+0700"}
+{"case_id": "EC_005", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=1191.5 match=False", "ts": "2026-08-05T12:44:26+0700"}
+{"case_id": "EC_005", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:26+0700"}
+{"case_id": "EC_005", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=1191.5 action=issue_full_refund", "ts": "2026-08-05T12:44:26+0700"}
+{"case_id": "EC_005", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3094 raw=unsupported_late_claim", "ts": "2026-08-05T12:44:29+0700"}
+{"case_id": "EC_005", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:29+0700"}
+{"case_id": "EC_006", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for fe51b7fac3bea42115fa1c3b8973cba7", "ts": "2026-08-05T12:44:29+0700"}
+{"case_id": "EC_006", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:44:29+0700"}
+{"case_id": "EC_006", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=44.38 match=True", "ts": "2026-08-05T12:44:29+0700"}
+{"case_id": "EC_006", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:29+0700"}
+{"case_id": "EC_006", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:44:29+0700"}
+{"case_id": "EC_006", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3048 raw=valid_split_payment", "ts": "2026-08-05T12:44:32+0700"}
+{"case_id": "EC_006", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:32+0700"}
+{"case_id": "EC_007", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for ded456690bcb2ffd4def86541479037f", "ts": "2026-08-05T12:44:32+0700"}
+{"case_id": "EC_007", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T12:44:32+0700"}
+{"case_id": "EC_007", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=56.4 match=True", "ts": "2026-08-05T12:44:32+0700"}
+{"case_id": "EC_007", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:32+0700"}
+{"case_id": "EC_007", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=56.4 action=issue_full_refund", "ts": "2026-08-05T12:44:32+0700"}
+{"case_id": "EC_007", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3224 raw=canceled_order_paid", "ts": "2026-08-05T12:44:35+0700"}
+{"case_id": "EC_007", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:35+0700"}
+{"case_id": "EC_008", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2c0032906c603dcc21cd954828fa77d0", "ts": "2026-08-05T12:44:35+0700"}
+{"case_id": "EC_008", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=['c1ed9e3daf6154542826a6996af0fb8c']", "ts": "2026-08-05T12:44:35+0700"}
+{"case_id": "EC_008", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=250.57 match=True", "ts": "2026-08-05T12:44:35+0700"}
+{"case_id": "EC_008", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:35+0700"}
+{"case_id": "EC_008", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=250.57 action=issue_full_refund", "ts": "2026-08-05T12:44:35+0700"}
+{"case_id": "EC_008", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3112 raw=canceled_order_paid", "ts": "2026-08-05T12:44:38+0700"}
+{"case_id": "EC_008", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:38+0700"}
+{"case_id": "EC_009", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 3aaee056441dcae251f360b1c71a7279", "ts": "2026-08-05T12:44:38+0700"}
+{"case_id": "EC_009", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:44:38+0700"}
+{"case_id": "EC_009", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=135.35 match=True", "ts": "2026-08-05T12:44:38+0700"}
+{"case_id": "EC_009", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:44:38+0700"}
+{"case_id": "EC_009", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=12.36 action=refund_freight", "ts": "2026-08-05T12:44:38+0700"}
+{"case_id": "EC_009", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=2977 raw=valid_split_payment", "ts": "2026-08-05T12:44:41+0700"}
+{"case_id": "EC_009", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:41+0700"}
+{"case_id": "EC_010", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 3a119f52de09d1b2700815732def8b47", "ts": "2026-08-05T12:44:41+0700"}
+{"case_id": "EC_010", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:44:41+0700"}
+{"case_id": "EC_010", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=27.77 match=True", "ts": "2026-08-05T12:44:41+0700"}
+{"case_id": "EC_010", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:44:41+0700"}
+{"case_id": "EC_010", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=7.78 action=refund_freight", "ts": "2026-08-05T12:44:41+0700"}
+{"case_id": "EC_010", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=2930 raw=valid_split_payment", "ts": "2026-08-05T12:44:44+0700"}
+{"case_id": "EC_010", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:44+0700"}
+{"case_id": "EC_011", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2636a02ee7de9590df86a4c24b739c49", "ts": "2026-08-05T12:44:44+0700"}
+{"case_id": "EC_011", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:44:44+0700"}
+{"case_id": "EC_011", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=142.09 match=False", "ts": "2026-08-05T12:44:44+0700"}
+{"case_id": "EC_011", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:44+0700"}
+{"case_id": "EC_011", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=142.09 action=issue_full_refund", "ts": "2026-08-05T12:44:44+0700"}
+{"case_id": "EC_011", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3284 raw=unsupported_late_claim", "ts": "2026-08-05T12:44:48+0700"}
+{"case_id": "EC_011", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:48+0700"}
+{"case_id": "EC_012", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 103de323ece563a1012b4b6adf5a81b2", "ts": "2026-08-05T12:44:48+0700"}
+{"case_id": "EC_012", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:44:48+0700"}
+{"case_id": "EC_012", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=114.67 match=True", "ts": "2026-08-05T12:44:48+0700"}
+{"case_id": "EC_012", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:44:48+0700"}
+{"case_id": "EC_012", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=9.67 action=refund_freight", "ts": "2026-08-05T12:44:48+0700"}
+{"case_id": "EC_012", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3074 raw=valid_split_payment", "ts": "2026-08-05T12:44:51+0700"}
+{"case_id": "EC_012", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:51+0700"}
+{"case_id": "EC_013", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for ee234bfd26ca588915483995d811c1d0", "ts": "2026-08-05T12:44:51+0700"}
+{"case_id": "EC_013", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:44:51+0700"}
+{"case_id": "EC_013", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=619.86 match=False", "ts": "2026-08-05T12:44:51+0700"}
+{"case_id": "EC_013", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:51+0700"}
+{"case_id": "EC_013", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=619.86 action=issue_full_refund", "ts": "2026-08-05T12:44:51+0700"}
+{"case_id": "EC_013", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3133 raw=unsupported_late_claim", "ts": "2026-08-05T12:44:54+0700"}
+{"case_id": "EC_013", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:54+0700"}
+{"case_id": "EC_014", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for b93b079468bdf6a20fd54cf45d1e03b6", "ts": "2026-08-05T12:44:54+0700"}
+{"case_id": "EC_014", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:44:54+0700"}
+{"case_id": "EC_014", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=72.14 match=True", "ts": "2026-08-05T12:44:54+0700"}
+{"case_id": "EC_014", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:54+0700"}
+{"case_id": "EC_014", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:44:54+0700"}
+{"case_id": "EC_014", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3024 raw=valid_split_payment", "ts": "2026-08-05T12:44:57+0700"}
+{"case_id": "EC_014", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:44:57+0700"}
+{"case_id": "EC_015", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for c504f1f5fd54cc8398d57dc0da49de01", "ts": "2026-08-05T12:44:57+0700"}
+{"case_id": "EC_015", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T12:44:57+0700"}
+{"case_id": "EC_015", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=69.49 match=True", "ts": "2026-08-05T12:44:57+0700"}
+{"case_id": "EC_015", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:44:57+0700"}
+{"case_id": "EC_015", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=69.49 action=issue_full_refund", "ts": "2026-08-05T12:44:57+0700"}
+{"case_id": "EC_015", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3104 raw=canceled_order_paid", "ts": "2026-08-05T12:45:00+0700"}
+{"case_id": "EC_015", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:00+0700"}
+{"case_id": "EC_016", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for a88edef387e2a7e457695664bf0ddfc0", "ts": "2026-08-05T12:45:00+0700"}
+{"case_id": "EC_016", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:00+0700"}
+{"case_id": "EC_016", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=52.52 match=True", "ts": "2026-08-05T12:45:00+0700"}
+{"case_id": "EC_016", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:45:00+0700"}
+{"case_id": "EC_016", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=14.52 action=refund_freight", "ts": "2026-08-05T12:45:00+0700"}
+{"case_id": "EC_016", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3016 raw=valid_split_payment", "ts": "2026-08-05T12:45:03+0700"}
+{"case_id": "EC_016", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:03+0700"}
+{"case_id": "EC_017", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for dd6ee4d96f0f3cf1432c3b82818e0387", "ts": "2026-08-05T12:45:03+0700"}
+{"case_id": "EC_017", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:03+0700"}
+{"case_id": "EC_017", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=72.76 match=True", "ts": "2026-08-05T12:45:03+0700"}
+{"case_id": "EC_017", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:45:03+0700"}
+{"case_id": "EC_017", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=12.76 action=refund_freight", "ts": "2026-08-05T12:45:03+0700"}
+{"case_id": "EC_017", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=2807 raw=valid_split_payment", "ts": "2026-08-05T12:45:06+0700"}
+{"case_id": "EC_017", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:06+0700"}
+{"case_id": "EC_018", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 97c8513f2504aa8ec05534307a703dea", "ts": "2026-08-05T12:45:06+0700"}
+{"case_id": "EC_018", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:06+0700"}
+{"case_id": "EC_018", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=27.68 match=True", "ts": "2026-08-05T12:45:06+0700"}
+{"case_id": "EC_018", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:06+0700"}
+{"case_id": "EC_018", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:45:06+0700"}
+{"case_id": "EC_018", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3070 raw=valid_split_payment", "ts": "2026-08-05T12:45:09+0700"}
+{"case_id": "EC_018", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:09+0700"}
+{"case_id": "EC_019", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 31f935babbc97f5990e0ffd128e19541", "ts": "2026-08-05T12:45:09+0700"}
+{"case_id": "EC_019", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:45:09+0700"}
+{"case_id": "EC_019", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=74.7 match=False", "ts": "2026-08-05T12:45:09+0700"}
+{"case_id": "EC_019", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:09+0700"}
+{"case_id": "EC_019", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=74.7 action=issue_full_refund", "ts": "2026-08-05T12:45:09+0700"}
+{"case_id": "EC_019", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3099 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:12+0700"}
+{"case_id": "EC_019", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:12+0700"}
+{"case_id": "EC_020", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 96087ef44ca9abdbc4c372a3dd3c859f", "ts": "2026-08-05T12:45:12+0700"}
+{"case_id": "EC_020", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:12+0700"}
+{"case_id": "EC_020", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=269.08 match=True", "ts": "2026-08-05T12:45:12+0700"}
+{"case_id": "EC_020", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:12+0700"}
+{"case_id": "EC_020", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:45:12+0700"}
+{"case_id": "EC_020", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=2981 raw=valid_split_payment", "ts": "2026-08-05T12:45:15+0700"}
+{"case_id": "EC_020", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:15+0700"}
+{"case_id": "EC_021", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 13d341318c77969f10d77e1382957542", "ts": "2026-08-05T12:45:15+0700"}
+{"case_id": "EC_021", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T12:45:15+0700"}
+{"case_id": "EC_021", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=38.86 match=True", "ts": "2026-08-05T12:45:15+0700"}
+{"case_id": "EC_021", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:15+0700"}
+{"case_id": "EC_021", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=38.86 action=issue_full_refund", "ts": "2026-08-05T12:45:15+0700"}
+{"case_id": "EC_021", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3061 raw=canceled_order_paid", "ts": "2026-08-05T12:45:18+0700"}
+{"case_id": "EC_021", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:18+0700"}
+{"case_id": "EC_022", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 1f7565efbb90c33b80f467d6a75332c5", "ts": "2026-08-05T12:45:18+0700"}
+{"case_id": "EC_022", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['02d35243ea2e497335cd0f076b45675d']", "ts": "2026-08-05T12:45:18+0700"}
+{"case_id": "EC_022", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=268.98 match=True", "ts": "2026-08-05T12:45:18+0700"}
+{"case_id": "EC_022", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:45:18+0700"}
+{"case_id": "EC_022", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=19.98 action=refund_freight", "ts": "2026-08-05T12:45:18+0700"}
+{"case_id": "EC_022", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3089 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:21+0700"}
+{"case_id": "EC_022", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:21+0700"}
+{"case_id": "EC_023", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 5fba7c57daf631028d2a584c52799e24", "ts": "2026-08-05T12:45:21+0700"}
+{"case_id": "EC_023", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:21+0700"}
+{"case_id": "EC_023", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=73.34 match=True", "ts": "2026-08-05T12:45:21+0700"}
+{"case_id": "EC_023", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:21+0700"}
+{"case_id": "EC_023", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:45:21+0700"}
+{"case_id": "EC_023", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3080 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:24+0700"}
+{"case_id": "EC_023", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:24+0700"}
+{"case_id": "EC_024", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for d8716a985f69a46751cc046b0fea0d98", "ts": "2026-08-05T12:45:24+0700"}
+{"case_id": "EC_024", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:45:24+0700"}
+{"case_id": "EC_024", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=87.08 match=False", "ts": "2026-08-05T12:45:24+0700"}
+{"case_id": "EC_024", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:24+0700"}
+{"case_id": "EC_024", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=87.08 action=issue_full_refund", "ts": "2026-08-05T12:45:24+0700"}
+{"case_id": "EC_024", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3121 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:28+0700"}
+{"case_id": "EC_024", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:28+0700"}
+{"case_id": "EC_025", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for e06ff711ddcab05c3651a9b1bb003950", "ts": "2026-08-05T12:45:28+0700"}
+{"case_id": "EC_025", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=3 sellers_late=[]", "ts": "2026-08-05T12:45:28+0700"}
+{"case_id": "EC_025", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=184.32 match=True", "ts": "2026-08-05T12:45:28+0700"}
+{"case_id": "EC_025", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:28+0700"}
+{"case_id": "EC_025", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:45:28+0700"}
+{"case_id": "EC_025", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3055 raw=valid_split_payment", "ts": "2026-08-05T12:45:31+0700"}
+{"case_id": "EC_025", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:31+0700"}
+{"case_id": "EC_026", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 966f96af9d189dc428ff04ebbca821b8", "ts": "2026-08-05T12:45:31+0700"}
+{"case_id": "EC_026", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T12:45:31+0700"}
+{"case_id": "EC_026", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=142.34 match=True", "ts": "2026-08-05T12:45:31+0700"}
+{"case_id": "EC_026", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:31+0700"}
+{"case_id": "EC_026", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=142.34 action=issue_full_refund", "ts": "2026-08-05T12:45:31+0700"}
+{"case_id": "EC_026", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3099 raw=canceled_order_paid", "ts": "2026-08-05T12:45:34+0700"}
+{"case_id": "EC_026", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:34+0700"}
+{"case_id": "EC_027", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2f346d92b11fcc7c342b3392b174cf3b", "ts": "2026-08-05T12:45:34+0700"}
+{"case_id": "EC_027", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:45:34+0700"}
+{"case_id": "EC_027", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=74.7 match=False", "ts": "2026-08-05T12:45:34+0700"}
+{"case_id": "EC_027", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:34+0700"}
+{"case_id": "EC_027", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=74.7 action=issue_full_refund", "ts": "2026-08-05T12:45:34+0700"}
+{"case_id": "EC_027", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3100 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:37+0700"}
+{"case_id": "EC_027", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:37+0700"}
+{"case_id": "EC_028", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 80f0181edc2f4a5bd3384a3c39a83cee", "ts": "2026-08-05T12:45:37+0700"}
+{"case_id": "EC_028", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:45:37+0700"}
+{"case_id": "EC_028", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=61.19 match=False", "ts": "2026-08-05T12:45:37+0700"}
+{"case_id": "EC_028", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:37+0700"}
+{"case_id": "EC_028", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=61.19 action=issue_full_refund", "ts": "2026-08-05T12:45:37+0700"}
+{"case_id": "EC_028", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=2974 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:40+0700"}
+{"case_id": "EC_028", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:40+0700"}
+{"case_id": "EC_029", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 5c932e0a181410b67c77daaed30991af", "ts": "2026-08-05T12:45:40+0700"}
+{"case_id": "EC_029", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=3 sellers_late=['88460e8ebdecbfecb5f9601833981930']", "ts": "2026-08-05T12:45:40+0700"}
+{"case_id": "EC_029", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=492.21 match=True", "ts": "2026-08-05T12:45:40+0700"}
+{"case_id": "EC_029", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:45:40+0700"}
+{"case_id": "EC_029", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=42.51 action=refund_freight", "ts": "2026-08-05T12:45:40+0700"}
+{"case_id": "EC_029", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3236 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:43+0700"}
+{"case_id": "EC_029", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:43+0700"}
+{"case_id": "EC_030", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 405be8487a7fde1db0bc31ad6b08050a", "ts": "2026-08-05T12:45:43+0700"}
+{"case_id": "EC_030", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:43+0700"}
+{"case_id": "EC_030", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=3 total=25.84 match=True", "ts": "2026-08-05T12:45:43+0700"}
+{"case_id": "EC_030", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:43+0700"}
+{"case_id": "EC_030", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:45:43+0700"}
+{"case_id": "EC_030", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3089 raw=valid_split_payment", "ts": "2026-08-05T12:45:46+0700"}
+{"case_id": "EC_030", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:46+0700"}
+{"case_id": "EC_031", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 4274ff4a5df607e75b32b80e2f8eda3f", "ts": "2026-08-05T12:45:46+0700"}
+{"case_id": "EC_031", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:46+0700"}
+{"case_id": "EC_031", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=89.44 match=True", "ts": "2026-08-05T12:45:46+0700"}
+{"case_id": "EC_031", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:45:46+0700"}
+{"case_id": "EC_031", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=7.44 action=refund_freight", "ts": "2026-08-05T12:45:46+0700"}
+{"case_id": "EC_031", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3087 raw=valid_split_payment", "ts": "2026-08-05T12:45:49+0700"}
+{"case_id": "EC_031", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:49+0700"}
+{"case_id": "EC_032", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for c4dad201936ed30eef3c94fafa59ed6e", "ts": "2026-08-05T12:45:49+0700"}
+{"case_id": "EC_032", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=2 sellers_late=[]", "ts": "2026-08-05T12:45:49+0700"}
+{"case_id": "EC_032", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=267.66 match=True", "ts": "2026-08-05T12:45:49+0700"}
+{"case_id": "EC_032", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:49+0700"}
+{"case_id": "EC_032", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:45:49+0700"}
+{"case_id": "EC_032", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3243 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:53+0700"}
+{"case_id": "EC_032", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:53+0700"}
+{"case_id": "EC_033", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for a5c8f3a11dcb9bd9b0acdfb8101dfdc8", "ts": "2026-08-05T12:45:53+0700"}
+{"case_id": "EC_033", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['1025f0e2d44d7041d6cf58b6550e0bfa']", "ts": "2026-08-05T12:45:53+0700"}
+{"case_id": "EC_033", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=138.72 match=True", "ts": "2026-08-05T12:45:53+0700"}
+{"case_id": "EC_033", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:45:53+0700"}
+{"case_id": "EC_033", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=18.72 action=refund_freight", "ts": "2026-08-05T12:45:53+0700"}
+{"case_id": "EC_033", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3255 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:56+0700"}
+{"case_id": "EC_033", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:56+0700"}
+{"case_id": "EC_034", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 973acef56bf70feefa8264d4e9f300fc", "ts": "2026-08-05T12:45:56+0700"}
+{"case_id": "EC_034", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['66922902710d126a0e7d26b0e3805106']", "ts": "2026-08-05T12:45:56+0700"}
+{"case_id": "EC_034", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=146.43 match=True", "ts": "2026-08-05T12:45:56+0700"}
+{"case_id": "EC_034", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:45:56+0700"}
+{"case_id": "EC_034", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=36.43 action=refund_freight", "ts": "2026-08-05T12:45:56+0700"}
+{"case_id": "EC_034", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3030 raw=unsupported_late_claim", "ts": "2026-08-05T12:45:59+0700"}
+{"case_id": "EC_034", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:45:59+0700"}
+{"case_id": "EC_035", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2478ddd1d1395639b71cf0d498d8dbf6", "ts": "2026-08-05T12:45:59+0700"}
+{"case_id": "EC_035", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:45:59+0700"}
+{"case_id": "EC_035", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=41.85 match=True", "ts": "2026-08-05T12:45:59+0700"}
+{"case_id": "EC_035", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:45:59+0700"}
+{"case_id": "EC_035", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:45:59+0700"}
+{"case_id": "EC_035", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3209 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:02+0700"}
+{"case_id": "EC_035", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:02+0700"}
+{"case_id": "EC_036", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for c609f82bcf7a90292a5940205ebd7e93", "ts": "2026-08-05T12:46:02+0700"}
+{"case_id": "EC_036", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=unavailable items=0 sellers_late=[]", "ts": "2026-08-05T12:46:02+0700"}
+{"case_id": "EC_036", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=117.78 match=False", "ts": "2026-08-05T12:46:02+0700"}
+{"case_id": "EC_036", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:02+0700"}
+{"case_id": "EC_036", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unavailable_order_paid refund=117.78 action=issue_full_refund", "ts": "2026-08-05T12:46:02+0700"}
+{"case_id": "EC_036", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unavailable_order_paid match=False elapsed_ms=3114 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:05+0700"}
+{"case_id": "EC_036", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:05+0700"}
+{"case_id": "EC_037", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for b90e46cdc30adec2f0fa041984341170", "ts": "2026-08-05T12:46:05+0700"}
+{"case_id": "EC_037", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['1ca7077d890b907f89be8c954a02686a']", "ts": "2026-08-05T12:46:05+0700"}
+{"case_id": "EC_037", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=163.79 match=True", "ts": "2026-08-05T12:46:05+0700"}
+{"case_id": "EC_037", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:46:05+0700"}
+{"case_id": "EC_037", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=14.79 action=refund_freight", "ts": "2026-08-05T12:46:05+0700"}
+{"case_id": "EC_037", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3140 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:09+0700"}
+{"case_id": "EC_037", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:09+0700"}
+{"case_id": "EC_038", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 6b27933c6a46e3d66203137ad1fdb678", "ts": "2026-08-05T12:46:09+0700"}
+{"case_id": "EC_038", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:09+0700"}
+{"case_id": "EC_038", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=205.26 match=True", "ts": "2026-08-05T12:46:09+0700"}
+{"case_id": "EC_038", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:09+0700"}
+{"case_id": "EC_038", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:46:09+0700"}
+{"case_id": "EC_038", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3048 raw=valid_split_payment", "ts": "2026-08-05T12:46:12+0700"}
+{"case_id": "EC_038", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:12+0700"}
+{"case_id": "EC_039", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 44a03ff139461361ec4cce7949663c2f", "ts": "2026-08-05T12:46:12+0700"}
+{"case_id": "EC_039", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:12+0700"}
+{"case_id": "EC_039", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=89.19 match=True", "ts": "2026-08-05T12:46:12+0700"}
+{"case_id": "EC_039", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:12+0700"}
+{"case_id": "EC_039", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:46:12+0700"}
+{"case_id": "EC_039", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3070 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:15+0700"}
+{"case_id": "EC_039", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:15+0700"}
+{"case_id": "EC_040", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 11bc240af3d9e1f77218715480a65b77", "ts": "2026-08-05T12:46:15+0700"}
+{"case_id": "EC_040", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:15+0700"}
+{"case_id": "EC_040", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=257.93 match=True", "ts": "2026-08-05T12:46:15+0700"}
+{"case_id": "EC_040", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:15+0700"}
+{"case_id": "EC_040", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:46:15+0700"}
+{"case_id": "EC_040", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3009 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:18+0700"}
+{"case_id": "EC_040", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:18+0700"}
+{"case_id": "EC_041", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 64a8b3b4c19751b51d211deb32fdc67b", "ts": "2026-08-05T12:46:18+0700"}
+{"case_id": "EC_041", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T12:46:18+0700"}
+{"case_id": "EC_041", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=53.19 match=True", "ts": "2026-08-05T12:46:18+0700"}
+{"case_id": "EC_041", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:18+0700"}
+{"case_id": "EC_041", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=53.19 action=issue_full_refund", "ts": "2026-08-05T12:46:18+0700"}
+{"case_id": "EC_041", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3277 raw=canceled_order_paid", "ts": "2026-08-05T12:46:21+0700"}
+{"case_id": "EC_041", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:21+0700"}
+{"case_id": "EC_042", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 8a5fc33c79bf3f4d9bbcc3dceb6b67c4", "ts": "2026-08-05T12:46:21+0700"}
+{"case_id": "EC_042", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:21+0700"}
+{"case_id": "EC_042", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=269.73 match=True", "ts": "2026-08-05T12:46:21+0700"}
+{"case_id": "EC_042", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:21+0700"}
+{"case_id": "EC_042", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:46:21+0700"}
+{"case_id": "EC_042", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3103 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:24+0700"}
+{"case_id": "EC_042", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:24+0700"}
+{"case_id": "EC_043", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 3ef6bcdda6193f8657168ba7e8b3e948", "ts": "2026-08-05T12:46:24+0700"}
+{"case_id": "EC_043", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['46dc3b2cc0980fb8ec44634e21d2718e']", "ts": "2026-08-05T12:46:24+0700"}
+{"case_id": "EC_043", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=217.96 match=True", "ts": "2026-08-05T12:46:24+0700"}
+{"case_id": "EC_043", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:46:24+0700"}
+{"case_id": "EC_043", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=17.97 action=refund_freight", "ts": "2026-08-05T12:46:24+0700"}
+{"case_id": "EC_043", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=3146 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:27+0700"}
+{"case_id": "EC_043", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:27+0700"}
+{"case_id": "EC_044", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for d671370d11048a2dab56335d3d91823e", "ts": "2026-08-05T12:46:27+0700"}
+{"case_id": "EC_044", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=['4a3ca9315b744ce9f8e9374361493884']", "ts": "2026-08-05T12:46:27+0700"}
+{"case_id": "EC_044", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=52.1 match=True", "ts": "2026-08-05T12:46:27+0700"}
+{"case_id": "EC_044", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=seller", "ts": "2026-08-05T12:46:27+0700"}
+{"case_id": "EC_044", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_seller refund=15.1 action=refund_freight", "ts": "2026-08-05T12:46:27+0700"}
+{"case_id": "EC_044", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=late_delivery_seller match=False elapsed_ms=2944 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:30+0700"}
+{"case_id": "EC_044", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:30+0700"}
+{"case_id": "EC_045", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for d67b79fea59821fda4d363d337a56c3a", "ts": "2026-08-05T12:46:30+0700"}
+{"case_id": "EC_045", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=canceled items=1 sellers_late=[]", "ts": "2026-08-05T12:46:30+0700"}
+{"case_id": "EC_045", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=69.07 match=True", "ts": "2026-08-05T12:46:30+0700"}
+{"case_id": "EC_045", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:30+0700"}
+{"case_id": "EC_045", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=canceled_order_paid refund=69.07 action=issue_full_refund", "ts": "2026-08-05T12:46:30+0700"}
+{"case_id": "EC_045", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=canceled_order_paid rule=canceled_order_paid match=True elapsed_ms=3289 raw=canceled_order_paid", "ts": "2026-08-05T12:46:34+0700"}
+{"case_id": "EC_045", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:34+0700"}
+{"case_id": "EC_046", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 2208f3a59d7067fe62c900692f5fdcaf", "ts": "2026-08-05T12:46:34+0700"}
+{"case_id": "EC_046", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:34+0700"}
+{"case_id": "EC_046", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=2 total=126.01 match=True", "ts": "2026-08-05T12:46:34+0700"}
+{"case_id": "EC_046", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:34+0700"}
+{"case_id": "EC_046", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=valid_split_payment refund=0.0 action=explain_valid_split_payment", "ts": "2026-08-05T12:46:34+0700"}
+{"case_id": "EC_046", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=valid_split_payment match=True elapsed_ms=3112 raw=valid_split_payment", "ts": "2026-08-05T12:46:37+0700"}
+{"case_id": "EC_046", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:37+0700"}
+{"case_id": "EC_047", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for b04477ada8d2ad7fa9d95358baaa785d", "ts": "2026-08-05T12:46:37+0700"}
+{"case_id": "EC_047", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:37+0700"}
+{"case_id": "EC_047", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=42.8 match=True", "ts": "2026-08-05T12:46:37+0700"}
+{"case_id": "EC_047", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:37+0700"}
+{"case_id": "EC_047", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:46:37+0700"}
+{"case_id": "EC_047", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3177 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:40+0700"}
+{"case_id": "EC_047", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:40+0700"}
+{"case_id": "EC_048", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for adc253f1977c81c2c29dc7b9dd23d538", "ts": "2026-08-05T12:46:40+0700"}
+{"case_id": "EC_048", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:40+0700"}
+{"case_id": "EC_048", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=61.4 match=True", "ts": "2026-08-05T12:46:40+0700"}
+{"case_id": "EC_048", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=False party=None", "ts": "2026-08-05T12:46:40+0700"}
+{"case_id": "EC_048", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=unsupported_late_claim refund=0.0 action=reject_late_refund", "ts": "2026-08-05T12:46:40+0700"}
+{"case_id": "EC_048", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=unsupported_late_claim rule=unsupported_late_claim match=True elapsed_ms=3153 raw=unsupported_late_claim", "ts": "2026-08-05T12:46:43+0700"}
+{"case_id": "EC_048", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:43+0700"}
+{"case_id": "EC_049", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for 5b9e9502eca103a28ea22a94c65e3950", "ts": "2026-08-05T12:46:43+0700"}
+{"case_id": "EC_049", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:43+0700"}
+{"case_id": "EC_049", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=45.3 match=True", "ts": "2026-08-05T12:46:43+0700"}
+{"case_id": "EC_049", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:46:43+0700"}
+{"case_id": "EC_049", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=15.31 action=refund_freight", "ts": "2026-08-05T12:46:43+0700"}
+{"case_id": "EC_049", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=3090 raw=valid_split_payment", "ts": "2026-08-05T12:46:46+0700"}
+{"case_id": "EC_049", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:46+0700"}
+{"case_id": "EC_050", "step": 1, "from_agent": "coordinator", "to_agent": "order_seller_agent", "summary": "dispatch order lookup for af0bbb47f125381ce9f3597dc70ef07b", "ts": "2026-08-05T12:46:46+0700"}
+{"case_id": "EC_050", "step": 2, "from_agent": "order_seller_agent", "to_agent": "coordinator", "summary": "status=delivered items=1 sellers_late=[]", "ts": "2026-08-05T12:46:46+0700"}
+{"case_id": "EC_050", "step": 3, "from_agent": "payment_agent", "to_agent": "coordinator", "summary": "n_payments=1 total=23.6 match=True", "ts": "2026-08-05T12:46:46+0700"}
+{"case_id": "EC_050", "step": 4, "from_agent": "delivery_agent", "to_agent": "policy_agent", "summary": "late=True party=carrier", "ts": "2026-08-05T12:46:46+0700"}
+{"case_id": "EC_050", "step": 5, "from_agent": "policy_agent", "to_agent": "coordinator", "summary": "issue=late_delivery_logistics refund=14.1 action=refund_freight", "ts": "2026-08-05T12:46:46+0700"}
+{"case_id": "EC_050", "step": 6, "from_agent": "llm_policy_agent", "to_agent": "coordinator", "summary": "model=qwen2.5:7b proposed=valid_split_payment rule=late_delivery_logistics match=False elapsed_ms=2918 raw=valid_split_payment", "ts": "2026-08-05T12:46:49+0700"}
+{"case_id": "EC_050", "step": 7, "from_agent": "verifier_agent", "to_agent": "coordinator", "summary": "pass (round 0)", "ts": "2026-08-05T12:46:49+0700"}

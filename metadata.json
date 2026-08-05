@@ -9,6 +9,6 @@
   "research_web_source": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
   "research_web_ok": true,
   "framework": "custom Python A2A multi-agent (Research + pandas tools + Ollama LLM)",
-  "runtime_seconds": 198.41,
+  "runtime_seconds": 166.76,
   "cases": 50
 }

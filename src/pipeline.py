@@ -145,42 +145,94 @@ class PolicyAgent:
 
     def decide(self, order_f, pay_f, del_f):
         if not order_f["order_found"]:
-            return self._branch("unsupported_late_claim", "DELIVERY_WITHIN_ESTIMATE",
-                                None, 0.0, "reject_late_refund", 0.3)
-        status = order_f["order_status"]
-        if status == "canceled" and pay_f["payment_total"] > 0:
-            return self._branch("canceled_order_paid", "ORDER_CANCELED_AFTER_PAYMENT",
-                                ("platform", "OLIST_PLATFORM"), pay_f["payment_total"],
-                                "issue_full_refund", 0.95)
-        if status == "unavailable" and pay_f["payment_total"] > 0:
-            return self._branch("unavailable_order_paid", "ORDER_UNAVAILABLE_AFTER_PAYMENT",
-                                ("platform", "OLIST_PLATFORM"), pay_f["payment_total"],
-                                "issue_full_refund", 0.95)
-        if del_f["late"] and order_f["sellers_late"]:
-            return self._branch("late_delivery_seller", "SELLER_HANDOFF_AFTER_LIMIT",
-                                ("seller", order_f["sellers_late"][0]), order_f["freight_total"],
-                                "refund_freight", 0.9)
-        if del_f["late"]:
-            return self._branch("late_delivery_logistics", "CARRIER_DELIVERED_AFTER_ESTIMATE",
-                                ("logistics_provider", "LOGISTICS_PROVIDER"), order_f["freight_total"],
-                                "refund_freight", 0.9)
-        if pay_f["n_payments"] >= 2 and pay_f["matches_order_total"]:
-            return self._branch("valid_split_payment", "MULTIPLE_PAYMENTS_RECONCILED",
-                                None, 0.0, "explain_valid_split_payment", 0.9)
-        if not del_f["late"] and pay_f["matches_order_total"]:
-            return self._branch("unsupported_late_claim", "DELIVERY_WITHIN_ESTIMATE",
-                                None, 0.0, "reject_late_refund", 0.85)
-        # exhaustive fallback branch (should not occur in the official 50 cases)
-        return self._branch("unsupported_late_claim", "DELIVERY_WITHIN_ESTIMATE",
-                            None, 0.0, "reject_late_refund", 0.5)
+            d = self._branch("unsupported_late_claim", "DELIVERY_WITHIN_ESTIMATE",
+                             None, 0.0, "reject_late_refund")
+        elif order_f["order_status"] == "canceled" and pay_f["payment_total"] > 0:
+            d = self._branch("canceled_order_paid", "ORDER_CANCELED_AFTER_PAYMENT",
+                             ("platform", "OLIST_PLATFORM"), pay_f["payment_total"],
+                             "issue_full_refund")
+        elif order_f["order_status"] == "unavailable" and pay_f["payment_total"] > 0:
+            d = self._branch("unavailable_order_paid", "ORDER_UNAVAILABLE_AFTER_PAYMENT",
+                             ("platform", "OLIST_PLATFORM"), pay_f["payment_total"],
+                             "issue_full_refund")
+        elif del_f["late"] and order_f["sellers_late"]:
+            d = self._branch("late_delivery_seller", "SELLER_HANDOFF_AFTER_LIMIT",
+                             ("seller", order_f["sellers_late"][0]), order_f["freight_total"],
+                             "refund_freight")
+        elif del_f["late"]:
+            d = self._branch("late_delivery_logistics", "CARRIER_DELIVERED_AFTER_ESTIMATE",
+                             ("logistics_provider", "LOGISTICS_PROVIDER"), order_f["freight_total"],
+                             "refund_freight")
+        elif pay_f["n_payments"] >= 2 and pay_f["matches_order_total"]:
+            d = self._branch("valid_split_payment", "MULTIPLE_PAYMENTS_RECONCILED",
+                             None, 0.0, "explain_valid_split_payment")
+        elif not del_f["late"] and pay_f["matches_order_total"]:
+            d = self._branch("unsupported_late_claim", "DELIVERY_WITHIN_ESTIMATE",
+                             None, 0.0, "reject_late_refund")
+        else:
+            d = self._branch("unsupported_late_claim", "DELIVERY_WITHIN_ESTIMATE",
+                             None, 0.0, "reject_late_refund")
+        return d
 
     @staticmethod
-    def _branch(issue, cause, party, refund, action, confidence):
+    def _branch(issue, cause, party, refund, action):
         return {"primary_issue": issue, "cause_code": cause, "party": party,
-                "refund": money2(refund), "action": action, "confidence": confidence}
+                "refund": money2(refund), "action": action}
 
-    def draft(self, case_id, order_f, pay_f, decision):
-        """Best-scoring output shape (validated ~95.66 + confidence=1.0)."""
+    @staticmethod
+    def compute_confidence(order_f, pay_f, del_f, decision, llm_agrees=None) -> float:
+        """Confidence from factual signals only (not 'branch predicates are true').
+
+        1) payment residual vs item+freight (or payment present for canceled/unavailable)
+        2) timestamp completeness for the order's status
+        3) LLM auditor agree/disagree (optional)
+
+        Complete Olist rows → high confidence; missing dates / pay mismatch / LLM
+        conflict → lower. Never hardcodes 1.0.
+        """
+        if not order_f.get("order_found"):
+            return 0.3
+
+        issue = decision["primary_issue"]
+        item = float(order_f.get("item_total") or 0.0)
+        freight = float(order_f.get("freight_total") or 0.0)
+        pay = float(pay_f.get("payment_total") or 0.0)
+        residual = abs(pay - (item + freight))
+        status = order_f.get("order_status")
+
+        # Money: canceled/unavailable often lack item rows → residual is expected.
+        if issue in ("canceled_order_paid", "unavailable_order_paid"):
+            money_score = 1.0 if pay > 0 else 0.55
+        elif residual <= 1e-9:
+            money_score = 1.0
+        elif residual <= 0.10:
+            money_score = 0.94
+        else:
+            money_score = 0.70
+
+        # Completeness of CSV fields used by tools (independent of chosen issue).
+        checks = [pay_f.get("n_payments", 0) >= 1]
+        if status == "delivered":
+            checks.append(order_f.get("estimated_delivery_date") is not None)
+            checks.append(order_f.get("delivered_customer_date") is not None)
+            checks.append(order_f.get("delivered_carrier_date") is not None)
+        elif status in ("canceled", "unavailable"):
+            checks.append(pay > 0)
+        else:
+            checks.append(order_f.get("estimated_delivery_date") is not None)
+
+        data_score = sum(1 for c in checks if c) / len(checks)
+        conf = 0.60 * money_score + 0.40 * data_score
+
+        if llm_agrees is True:
+            conf = min(1.0, conf + 0.03)
+        elif llm_agrees is False:
+            conf = max(0.78, conf - 0.05)
+
+        return money2(min(1.0, max(0.5, conf)))
+
+    def draft(self, case_id, order_f, pay_f, decision, del_f=None, llm_agrees=None):
+        """Draft output from tool facts + policy decision."""
         oid = order_f["order_id"]
         items = sorted(
             order_f.get("items", []) if order_f["order_found"] else [],
@@ -193,8 +245,7 @@ class PolicyAgent:
         seller_ids = sorted({x["seller_id"] for x in items})[:5]
         payment_ids = [f"{oid}:{p['payment_sequential']}" for p in payments][:5]
 
-        # Evidence: seller: ONLY when seller is at fault (validated Evidence 86→96).
-        # Keep item: for canceled (present in the 95.66 submission).
+        # Evidence: seller: only when seller is the responsible party.
         issue = decision["primary_issue"]
         evidence = []
         if order_f["order_found"]:
@@ -220,12 +271,16 @@ class PolicyAgent:
         if decision["party"]:
             parties.append({"party_type": decision["party"][0], "party_id": decision["party"][1]})
 
+        del_f = del_f or {"late": False}
+        conf = self.compute_confidence(order_f, pay_f, del_f, decision, llm_agrees=llm_agrees)
+        decision["confidence"] = conf
+
         return {
             "case_id": case_id,
             "assessment": {
                 "primary_issue": decision["primary_issue"],
                 "case_status": "action_required" if decision["refund"] > 0 else "no_action",
-                "confidence": 1.0,
+                "confidence": conf,
             },
             "affected_entities": {
                 "order_ids": [oid] if order_f["order_found"] else [],
@@ -412,15 +467,17 @@ class Coordinator:
               f"rule={decision['primary_issue']} match={match} "
               f"elapsed_ms={llm_out['elapsed_ms']} raw={llm_out['raw'][:40]}")
 
-        draft = self.policy_agent.draft(cid, order_f, pay_f, decision)
+        draft = self.policy_agent.draft(
+            cid, order_f, pay_f, decision, del_f, llm_agrees=match)
         for round_no in range(1 + self.MAX_FIX_ROUNDS):
             errors = self.verifier.verify(draft)
             if not errors:
                 t.log(cid, 7 + round_no, "verifier_agent", "coordinator",
-                      f"pass (round {round_no})")
+                      f"pass (round {round_no}) confidence={draft['assessment']['confidence']}")
                 return draft
             t.log(cid, 7 + round_no, "verifier_agent", "policy_agent",
                   f"fail round {round_no}: {errors}")
-            draft = self.policy_agent.draft(cid, order_f, pay_f, decision)
+            draft = self.policy_agent.draft(
+                cid, order_f, pay_f, decision, del_f, llm_agrees=match)
         # deterministic draft is valid by construction; loop above is the safety net
         raise RuntimeError(f"{cid}: verifier kept failing: {errors}")
