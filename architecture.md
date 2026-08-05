@@ -102,7 +102,7 @@ Xác nhận bằng profiling thật (`scripts/profile_cases.py` chạy trên 50 
 | `payment_ids` | `<order_id>:<payment_sequential>` từng payment row; tối đa 5 |
 | `ranked_causes` | rank 1 = root cause của nhánh khớp; tối đa 3 |
 | `responsible_parties` | theo bảng rule; nhánh 5/6 để mảng rỗng |
-| `evidence_ids` | `order:<id>` + `item:...` + `payment:...` + `policy:<root_cause>`; chỉ thêm `seller:...` khi `late_delivery_seller` (seller thừa trên case khác bị tính false positive); tối đa 10 |
+| `evidence_ids` | `order` + `item` + `payment` + `policy`; **`seller:` chỉ khi `late_delivery_seller`**. Case logistics dùng `party_type=logistics_provider` / `LOGISTICS_PROVIDER` và **không** gắn `seller:` (gắn seller ở đây bị grader tính FP). `seller_ids` trong entities vẫn điền khi có item row (theo README). |
 | `item_total_brl` / `freight_total_brl` | sum từ item rows, `round(x, 2)`; 0.0 nếu không item |
 | `payment_total_brl` | sum payment rows, `round(x, 2)` |
 | `recommended_refund_brl` | payment_total (nhánh 1,2) / freight_total (3,4) / 0.0 (5,6,7) |
