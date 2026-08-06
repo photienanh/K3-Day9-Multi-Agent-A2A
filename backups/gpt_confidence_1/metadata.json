@@ -1,0 +1,21 @@
+{
+  "model_name": "gpt-4o-mini",
+  "parameter_size": "not publicly disclosed by OpenAI",
+  "framework": "Python + Pandas + Pydantic + OpenAI SDK Structured Outputs",
+  "runtime": "OpenAI Responses API",
+  "policy_version": "EC_POLICY_V1",
+  "decision_mode": "gpt-4o-mini structured reasoning over grounded CSV facts with deterministic safety validation",
+  "confidence_mode": "model confidence is traced; final confidence is normalized to 1.0 after a complete EC_POLICY_V1 match",
+  "llm_calls_per_case": 7,
+  "structured_outputs": true,
+  "parameter_limit_note": "The configured model name is explicit, but the <=10B parameter requirement cannot be independently proven from official OpenAI documentation.",
+  "agents": [
+    "CoordinatorAgent",
+    "OrderSellerAgent",
+    "PaymentAgent",
+    "DeliveryAgent",
+    "PolicyAgent",
+    "EvidenceAgent",
+    "VerifierAgent"
+  ]
+}

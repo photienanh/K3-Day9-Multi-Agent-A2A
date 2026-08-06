@@ -5,6 +5,9 @@ from datetime import datetime
 class Tracer:
     def __init__(self, log_path: str = "logging/trace.jsonl"):
         self.log_path = log_path
+        log_dir = os.path.dirname(self.log_path)
+        if log_dir:
+            os.makedirs(log_dir, exist_ok=True)
         # Xóa file cũ nếu có để ghi đợt chạy mới nhất
         if os.path.exists(self.log_path):
             os.remove(self.log_path)

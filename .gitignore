@@ -4,3 +4,5 @@
 .backups/
 __pycache__/
 *.pyc
+output/
+output.zip

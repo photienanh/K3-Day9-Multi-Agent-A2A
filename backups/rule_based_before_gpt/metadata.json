@@ -1,0 +1,18 @@
+{
+  "model_name": "gpt-4o-mini",
+  "parameter_size": "~8B",
+  "framework": "Python + Pandas + OpenAI SDK",
+  "runtime": "OpenAI API",
+  "policy_version": "EC_POLICY_V1",
+  "decision_mode": "deterministic rules over verifiable CSV facts",
+  "confidence_mode": "1.0 only for a complete EC_POLICY_V1 match",
+  "agents": [
+    "CoordinatorAgent",
+    "OrderSellerAgent",
+    "PaymentAgent",
+    "DeliveryAgent",
+    "PolicyAgent",
+    "EvidenceAgent",
+    "VerifierAgent"
+  ]
+}
